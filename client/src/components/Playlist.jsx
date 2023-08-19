@@ -1,44 +1,41 @@
-import useGetData from '../data';
 import { useParams } from 'react-router-dom'
+import { useGetPlaylist, formatArtists } from '../spotify';
+import { Link } from 'react-router-dom'
 import NavBar from './NavBar'
 
-function Main() {
+function Playlist() {
     const { id } = useParams();
-    let data = useGetData(`/playlist/${id}`)
+    const playlist = useGetPlaylist(id);
+    
     return (
         <div id = "container">
             <NavBar />
-            <div id="playlist-wrapper">
-                {(typeof data.title === 'undefined') ? (
-                    <div></div>
-                ) : (
-                    <div id="playlist-title">{data.title}</div>
-                )
-                }
+            <div className="playlist-container">
+                <div className="playlist-information">
+                    <img className="playlist-art" src={playlist?.images?.[0]?.url}></img>
+                    <div className="playlist-data">
+                        <div className="playlist-name">{playlist?.name}</div>
+                        <div className="playlist-owner">{playlist?.owner?.display_name}</div>
+                        <div className="playlist-total-tracks">{playlist?.tracks?.total} tracks</div>
+                    </div>
+                </div>
                 <div className="tracks">
-                    {(typeof data.tracks === 'undefined') ? (
-                        <div></div>
-                    ) : (
-                        data.tracks.map((track, i) => (
-                            <div className="track-info" key = {i}>
-                                <div id="index">{i + 1}</div>
-                                <div id="art">
-                                    <img src={track.art[0]}></img>
-                                </div>
-                                <div id="matrix">
-                                    <div id="title" key = {i}>{track['title']} </div>
-                                    <div id="artists">{track['artists']} </div>
-                                </div>
-                                <div id="album">{track['album']}</div>
-                                <div id="date">{track['date added']}</div>
+                    {playlist?.tracks?.items?.map((data, i) => (
+                        <Link to={"/track/" + data?.track?.id} className="track-information" key = {i}>
+                            <div className="track-index">{i + 1}</div>
+                            <img className="track-art" src={data?.track?.album?.images?.[0].url}></img>
+                            <div className="track-matrix">
+                                <div className="track-name">{data?.track?.name}</div>
+                                <div className="track-artists">{formatArtists(data?.track?.artists)}</div>
+                                <div className="track-album">{data?.track?.album.name}</div>
                             </div>
-                        ))
-                    )}
+                        </Link>
+                    ))}
                 </div>
             </div>
         </div>
     )
 }
 
-export default Main
+export default Playlist
 

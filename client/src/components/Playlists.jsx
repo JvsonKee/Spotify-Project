@@ -1,34 +1,29 @@
 import { Link } from 'react-router-dom'
 import NavBar from './NavBar.jsx';
-import { usePlaylists } from '../UseCases/useCases';
+import { useGetPlaylists } from '../spotify/index.js';
 
 
-function Playlists( {code} ) {
-    const playlists = usePlaylists(code);
+function Playlists() {
+    const playlists = useGetPlaylists();
     return ( 
-        <div>
-            <div id="playlists">
+        <div className="container">
+            <NavBar />  
+            <div className="playlists-container">
                 <div className="your-playlists">Your Playlists</div>
-                {playlists?.items?.map((playlist, i) => (
-                    <div key={i}>{playlist.name}</div>
-                ))}
-                {/* {(typeof data.playlists === 'undefined') ? (
-                    <div>hello</div>
-                ) : (
-                    data.playlists.map((playlist, i) => (
-                        <div id="playlist" data-id={playlist.id} key = {i}>
-                            <Link to={"playlist/" + playlist.id}>
-                                <div className="image-container">
-                                    <img className='image-style' src={playlist['art'][0]}></img>
-                                    <div className="image-title">{ playlist['title'] }</div>
-                                </div>
-                            </Link>
+                <div className="playlists">
+                    {playlists?.items?.map((playlist, i) => (
+                        <div className="playlist-card" key={i}>
+                            <Link to={"/playlist/" + playlist.id}><img className="playlists-art" src={playlist?.images?.[0].url}></img></Link>
+                            <div className="playlists-information">
+                                <Link to={"/playlist/" + playlist.id} className="playlists-name">{playlist.name}</Link>
+                                <div className="playlists-track-number">{playlist?.tracks?.total} tracks</div>
+                            </div>
                         </div>
-                    ))
-                )} */}
+                    ))}
+                </div>
             </div>
         </div>
-        
+       
     )
 }
 

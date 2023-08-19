@@ -4,6 +4,7 @@ import Playlists from './components/Playlists'
 import App from './App';
 import Main from './components/Playlist'
 import Profile from './components/Profile';
+import AudioFeatures from './components/AudioFeatures'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: 'playlist/:id',
     element: <Main />
+  },
+  {
+    path: 'track/:id',
+    element: <AudioFeatures />
   }
 ]);
 

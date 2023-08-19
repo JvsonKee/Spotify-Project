@@ -1,5 +1,5 @@
-const clientId = '7aabd726797b45ceb6f79d4500b4cf3d'
-const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=http://localhost:5173&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state%20playlist-read-private%20user-follow-read`
+
+const AUTH_URL = 'http://localhost:8888/login'
 
 function Login() {
     return (
