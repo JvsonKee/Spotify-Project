@@ -10,15 +10,28 @@ export const MainContent = styled.div`
     flex-direction: column;
     gap: 50px;
     overflow: scroll;
+
+    @media screen and (max-width: 820px) {
+        width: 100%;
+        height: 82vh;
+    }
 `
 
 export const TrackInformation = styled.div`
     display: flex;
     gap: 30px;
+
+    @media screen and (max-width: 700px) {
+        flex-direction: column;
+    }
 `
 
 export const TrackArt = styled.img`
-    width: 350px;
+    width: clamp(250px, 20vw, 350px);
+
+    @media screen and (max-width: 700px) {
+        margin: 0 auto;
+    }
 `
 
 export const FeaturesInformation = styled.div`
@@ -26,6 +39,10 @@ export const FeaturesInformation = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     width: 100%;
+
+    @media screen and (max-width: 700px) {
+        gap: 30px;
+    }
 `
 
 export const TrackData = styled.div`
@@ -65,7 +82,9 @@ export const AnalysisWrapper = styled.div`
 export const FeatureItem = styled.div`
     color: var(--text-white);
     font-weight: 700;
-    font-size: 20px;
+    font-size: clamp(12px, 3vw, 20px);
+
+
 `
 
 export const ChartContainer = styled.div`

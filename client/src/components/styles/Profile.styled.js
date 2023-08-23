@@ -4,13 +4,22 @@ import { Link } from 'react-router-dom';
 export const MainContent = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
     background-color: var(--light-black);
     border-radius: 15px;
     width: 70vw;
     height: 87vh;
     padding: 5vh 5vw;
+    overflow: scroll;
+
+    @media screen and (max-width: 820px) {
+        justify-content: space-between;
+        width: 100%;
+        padding: 5vh 10vw;
+        gap: 50px;
+        height: 82vh;
+    }
 `
 
 export const ProfileInformation = styled.div`
@@ -45,6 +54,11 @@ export const TopItems = styled.div`
     justify-content: space-evenly;
     gap: 10px;
     width: 100%;
+    
+    @media screen and (max-width: 700px) {
+        flex-direction: column;
+        margin: 0 auto;
+    }
 `
 
 export const TopCategory = styled.div`

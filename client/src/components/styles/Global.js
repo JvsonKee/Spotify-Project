@@ -45,11 +45,10 @@ const GlobalStyles = createGlobalStyle`
         color: var(--text-white);
         font-family: 'Montserrat';
         font-weight: 500;
-    };
 
-    .container {
-        display: flex;
-        gap: 1px;
+        @media screen and (max-width: 820px) {
+            background-color: var(--light-black);
+        }
     };
 `;
 

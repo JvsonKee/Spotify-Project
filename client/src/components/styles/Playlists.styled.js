@@ -13,6 +13,11 @@ export const MainContent = styled.div`
     display: flex;
     gap: 50px;
     overflow: scroll;
+
+    @media screen and (max-width: 820px) {
+        width: 100%;
+        height: 82vh;
+    }
 `
 
 export const Header = styled.div`
@@ -23,7 +28,6 @@ export const Header = styled.div`
 export const PlaylistsContainer = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 30px;
     word-wrap: break-word;
@@ -33,12 +37,12 @@ export const PlaylistsContainer = styled.div`
 export const PlaylistCard = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 220px;
+    gap: 5px;
+    width: 210px;
 `
 
 export const PlaylistArt = styled.img`
-    width: 220px;
+    width: 210px;
     transition: 0.4s ease-in-out;
     &:hover {
         filter: brightness(50%);
