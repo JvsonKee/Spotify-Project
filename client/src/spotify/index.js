@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import SpotifyWebApi from 'spotify-web-api-node'
 
-const token = 'BQC7EXfbQFx9eue6id3BiuWlTSI0SUIu8MuJVpcHXbqpyRdzz1ujuwx-P_YH5Y0eERoxnuXZDtoKsf6vSaYjE9G5-z2qRmLDWzv0nAHleJATwW8r66bR3nvQFnN0KCZXdrGYpipAlazG_s8Wt4nUpRaxzyEa3uQ-7MPqaTNzdbXtEH6H_IAYW5v6eJLKbr1aCiBiPjwFtzuF'
+const token = localStorage.getItem('Access Token');
+console.log('token from index', token)
 const spotifyApi = new SpotifyWebApi();
 spotifyApi.setAccessToken(token);
 

@@ -1,6 +1,9 @@
 import { Chart as ChartJS } from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2'
+import PropTypes from 'prop-types'
 import { useState } from 'react';
+
+ChartJS.register();
 
 const barColours = [
     'rgba(254, 96, 96, 0.3)',
@@ -27,7 +30,7 @@ const borderColours = [
 function AudioChart( {trackData} ) {
 
     console.log('trackData from audio chart', trackData)
-    const [chartData, setChartData] = useState({
+    const [chartData, setChartData] = useState( {
         labels: trackData.map((data) => data.label),
         datasets: [{
             label: '',
@@ -80,6 +83,10 @@ function AudioChart( {trackData} ) {
             />
         </div> 
     )
+}
+
+AudioChart.propTypes = {
+    trackData: PropTypes.object
 }
 
 export default AudioChart;

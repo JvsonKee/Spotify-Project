@@ -1,11 +1,42 @@
+import styled from 'styled-components'
+import GlobalStyles from './styles/Global'
+
+const LoginContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-black);
+    height: 100vh;
+`
+
+const LoginButton = styled.a`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--accent-green);
+    border-radius: 70px;
+    width: 250px;
+    height: 75px;
+    text-decoration: none;
+    color: var(--text-white);
+    font-size: large;
+    font-weight: 600;
+    transition: 0.4s ease-in-out;
+
+
+    &:hover {
+        background-color: var(--accent-green);
+    }
+`
 
 const AUTH_URL = 'http://localhost:8888/login'
 
 function Login() {
     return (
-        <div className="login-page">
-            <a href={AUTH_URL} className="login-button">Login with Spotify</a>    
-        </div>
+        <LoginContainer>
+            <GlobalStyles />
+            <LoginButton href={AUTH_URL} className="login-button">Login with Spotify</LoginButton>    
+        </LoginContainer>
     )
 }
 

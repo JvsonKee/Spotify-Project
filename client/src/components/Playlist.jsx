@@ -1,46 +1,64 @@
 import { useParams } from 'react-router-dom'
 import { useGetPlaylist, formatArtists } from '../spotify';
-import { Link } from 'react-router-dom'
 import NavBar from './NavBar'
+import LoadingPage from './LoadingPage';
+
+import { Container } from './styles/Container';
+import { ContentContainer } from './styles/ContentContainer';
+import GlobalStyles from './styles/Global';
+import { TrackMatrix } from './styles/TrackMatrix';
+import { 
+    MainContent,
+    PlaylistInformation,
+    PlaylistArt,
+    PlaylistData,
+    PlaylistName,
+    Tracks,
+    TrackInformation,
+    Index,
+    TrackArt, 
+    TrackName
+} from './styles/Playlist.styled';
 
 function Playlist() {
     const { id } = useParams();
     const playlist = useGetPlaylist(id);
     
     return (
-        <div className="container">
+        <Container>
+            <GlobalStyles />
             <NavBar />
-            <div className="main-content-container">
+            <ContentContainer>
                 { 
                 playlist &&
                 playlist.tracks ?
-                    <div className="content-container" id="playlist-container">
-                        <div className="playlist-information">
-                            <img className="playlist-art" src={playlist.images[0].url}></img>
-                            <div className="playlist-data">
-                                <div className="playlist-name">{playlist.name}</div>
-                                <div className="playlist-owner">{playlist.owner.display_name}</div>
-                                <div className="playlist-total-tracks">{playlist.tracks.total} tracks</div>
-                            </div>
-                        </div>
-                        <div className="tracks">
+                    <MainContent>
+                        <PlaylistInformation>
+                            <PlaylistArt src={playlist.images[0].url}></PlaylistArt>
+                            <PlaylistData>
+                                <PlaylistName>{playlist.name}</PlaylistName>
+                                <div>{playlist.owner.display_name}</div>
+                                <div>{playlist.tracks.total} tracks</div>
+                            </PlaylistData>
+                        </PlaylistInformation>
+                        <Tracks>
                             {playlist.tracks.items.map((data, i) => (
-                                <Link to={"/track/" + data.track.id} className="track-information" key = {i}>
-                                    <div className="index">{i + 1}</div>
-                                    <img className="track-art" src={data.track.album.images[0].url}></img>
-                                    <div className="track-matrix">
-                                        <div className="track-name">{data.track.name}</div>
-                                        <div className="track-artists">{formatArtists(data.track.artists)}</div>
-                                        <div className="track-album">{data.track.album.name}</div>
-                                    </div>
-                                </Link>
+                                <TrackInformation to={"/track/" + data.track.id} key = {i}>
+                                    <Index>{i + 1}</Index>
+                                    <TrackArt src={data.track.album.images[0].url}></TrackArt>
+                                    <TrackMatrix>
+                                        <TrackName>{data.track.name}</TrackName>
+                                        <div>{formatArtists(data.track.artists)}</div>
+                                        <div>{data.track.album.name}</div>
+                                    </TrackMatrix>
+                                </TrackInformation>
                             ))}
-                        </div>
-                    </div> : 
-                    <div>Loading...</div>
+                        </Tracks>
+                    </MainContent> : 
+                   <LoadingPage />
                 }
-            </div>
-        </div>
+            </ContentContainer>
+        </Container>
     )
 }
 

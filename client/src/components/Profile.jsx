@@ -1,5 +1,4 @@
 import NavBar from "./NavBar";
-import { Link } from 'react-router-dom'
 import { 
     useGetUser, 
     useGetFollowing, 
@@ -8,17 +7,40 @@ import {
     formatArtists 
 } from "../spotify"
 
+import LoadingPage from "./LoadingPage";
+import GlobalStyles from "./styles/Global";
+import { Container } from "./styles/Container";
+import { ContentContainer } from "./styles/ContentContainer";
+import { TrackMatrix } from "./styles/TrackMatrix";
+import { 
+    MainContent, 
+    ProfileInformation, 
+    ProfilePicture, 
+    DisplayName, 
+    FollowItems, 
+    TopItems, 
+    TopCategory,
+    TopHeader,
+    TrackCard,
+    Index, 
+    TrackArt, 
+    TrackName,
+    TrackAlbumArtists, 
+    ArtistCard,
+    ArtistPicture
+} from "./styles/Profile.styled";
+
 function Profile() {
     const profile = useGetUser();
     const following = useGetFollowing();
     const topArtists = useGetTopArtists();
     const topTracks = useGetTopTracks();
-
-
+    
     return (
-        <div className="container">
+        <Container>
+            <GlobalStyles />
             <NavBar />
-            <div className="main-content-container">
+            <ContentContainer>
                 { 
                 profile && 
                 following && 
@@ -26,45 +48,45 @@ function Profile() {
                 topTracks &&
                 topArtists.items &&
                 topTracks.items ? 
-                    <div className="content-container" id="profile-container">
-                        <div className="profile-information">
-                            <img className="profile-picture" src={profile.images[1].url}></img>
-                            <div className="display-name"> {profile.display_name} </div>
-                            <div className="follow-items">
-                                <div className="follower-count">{profile.followers.total} <span>Followers</span></div>
-                                <div className="following-count">{following.artists.total} <span>Following</span></div>
-                            </div>
-                        </div>
-                        <div className="top-items">
-                            <div className="top-tracks">
-                                <div className="top-header">Top Tracks</div>
+                    <MainContent>
+                        <ProfileInformation>
+                            <ProfilePicture src={profile.images[1].url}></ProfilePicture>
+                            <DisplayName> {profile.display_name} </DisplayName>
+                            <FollowItems>
+                                <div>{profile.followers.total} <span>Followers</span></div>
+                                <div>{following.artists.total} <span>Following</span></div>
+                            </FollowItems>
+                        </ProfileInformation>
+                        <TopItems>
+                            <TopCategory>
+                                <TopHeader>Top Tracks</TopHeader>
                                 {topTracks.items.slice(0, 5).map((track, i) => (
-                                    <Link to={"/track/" + track.id} className="track-card" key={i}>
-                                        <div className="index">{i + 1}</div>
-                                        <img className="profile-track-art" src={track.album.images[0].url}></img>
-                                        <div className="track-matrix">
-                                            <div className="profile-track-name">{track.name}</div>
-                                            <div className="profile-track-artists-album">{formatArtists(track.artists)} • {track.album.name}</div>
-                                        </div>
-                                    </Link>
+                                    <TrackCard to={"/track/" + track.id} key={i}>
+                                        <Index>{i + 1}</Index>
+                                        <TrackArt src={track.album.images[0].url}></TrackArt>
+                                        <TrackMatrix>
+                                            <TrackName>{track.name}</TrackName>
+                                            <TrackAlbumArtists>{formatArtists(track.artists)} • {track.album.name}</TrackAlbumArtists>
+                                        </TrackMatrix>
+                                    </TrackCard>
                                 ))}
-                            </div>
-                            <div className="top-artists">
-                                <div className="top-header">Top Artists</div>
+                            </TopCategory>
+                            <TopCategory>
+                                <TopHeader>Top Artists</TopHeader>
                                 {topArtists.items.slice(0, 5).map((artist, i) => (
-                                    <div className="artist-card" key={i}>
-                                        <div className ="index">{i + 1}</div>
-                                        <img className="profile-artist-art" src={artist.images[0].url}></img>
-                                        <div className="profile-artist-name">{artist.name}</div>
-                                    </div>
+                                    <ArtistCard key={i}>
+                                        <Index>{i + 1}</Index>
+                                        <ArtistPicture src={artist.images[0].url}></ArtistPicture>
+                                        <div>{artist.name}</div>
+                                    </ArtistCard>
                                 ))}
-                            </div>
-                        </div>
-                    </div> : 
-                    <div>Loading</div>
+                            </TopCategory>
+                        </TopItems>
+                    </MainContent> : 
+                    <LoadingPage />
                 }
-            </div>
-        </div>
+            </ContentContainer>
+        </Container>
     )
 }
 

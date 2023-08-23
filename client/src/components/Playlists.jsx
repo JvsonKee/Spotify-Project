@@ -1,34 +1,48 @@
 import { Link } from 'react-router-dom'
 import NavBar from './NavBar.jsx';
 import { useGetPlaylists } from '../spotify/index.js';
+import LoadingPage from './LoadingPage.jsx';
+import { Container } from './styles/Container.js';
+import { 
+    MainContent,
+    Header,
+    PlaylistsContainer,
+    PlaylistCard,
+    PlaylistArt,
+    PlaylistInformation,
+    PlaylistName,
+    TrackTotal
+} from './styles/Playlists.styled.js';
+import GlobalStyles from './styles/Global.js';
+import { ContentContainer } from './styles/ContentContainer.js';
 
 
 function Playlists() {
     const playlists = useGetPlaylists();
     return ( 
-        <div className="container">
+        <Container>
+            <GlobalStyles />
             <NavBar />  
-            <div className="main-content-container">
-
+            <ContentContainer>
                 { playlists && playlists.items ?
-                    <div className="content-container" id="playlists-container">
-                        <div className="your-playlists">Your Playlists</div>
-                        <div className="playlists">
+                    <MainContent>
+                        <Header>Your Playlists</Header>
+                        <PlaylistsContainer>
                             {playlists.items.map((playlist, i) => (
-                                <div className="playlist-card" key={i}>
-                                    <Link to={"/playlist/" + playlist.id}><img className="playlists-art" src={playlist.images[0].url}></img></Link>
-                                    <div className="playlists-information">
-                                        <Link to={"/playlist/" + playlist.id} className="playlists-name">{playlist.name}</Link>
-                                        <div className="playlists-track-number">{playlist.tracks.total} tracks</div>
-                                    </div>
-                                </div>
+                                <PlaylistCard key={i}>
+                                    <Link to={"/playlist/" + playlist.id}><PlaylistArt src={playlist.images[0].url}></PlaylistArt></Link>
+                                    <PlaylistInformation>
+                                        <PlaylistName to={"/playlist/" + playlist.id}>{playlist.name}</PlaylistName>
+                                        <TrackTotal>{playlist.tracks.total} tracks</TrackTotal>
+                                    </PlaylistInformation>
+                                </PlaylistCard>
                             ))}
-                        </div>
-                    </div> :
-                    <div>Loading...</div>
+                        </PlaylistsContainer>
+                    </MainContent> :
+                    <LoadingPage />
                 }
-            </div>
-        </div>
+            </ContentContainer>
+        </Container>
        
     )
 }

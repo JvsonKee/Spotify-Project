@@ -11,14 +11,25 @@ import {
     getTrackAudioFeatures,
 } from '../spotify';
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
+import LoadingPage from './LoadingPage';
 
-
+import GlobalStyles from './styles/Global';
+import { Container } from './styles/Container';
+import { ContentContainer } from './styles/ContentContainer';
+import { 
+    MainContent,
+    TrackInformation,
+    TrackArt,
+    FeaturesInformation,
+    TrackData,
+    TrackName,
+    TrackAnalysis,
+    AnalysisWrapper,
+    FeatureItem,
+    ChartContainer
+} from './styles/AudioFeatures.styled';
 
 function AudioFeatures() {
-
-    // let xValues = ["acousticness", "danceability", "energy", "instrumentalness", "liveness", "speechiness", "valence"];
-    // let yValues = [0.7, 0.2, 0.6, 0.8, 0.2, 0.6, 0.3];
 
     const { id } = useParams()
     const track = useGetTrack(id);
@@ -32,71 +43,59 @@ function AudioFeatures() {
     let tempo = features.tempo;
     tempo = Math.round(tempo);
 
-    
     let trackData = getTrackAudioFeatures(features);
-    trackData ? console.log({trackData}) : null;
    
-    // const [chartData, setChartData] = useState({
-    //     labels: trackData.map((data) => data.label),
-    //     datasets: [{
-    //         label: '',
-    //         data: trackData.map((score) => score.value),
-    //         backgroundColor: barColours,
-    //         borderColor: borderColours,
-    //         borderWidth: 1 
-    //     }]
-    // })
-
     return(
-        <div className="container">
+        <Container>
+            <GlobalStyles />
             <NavBar />
-            <div className="main-content-container">
+            <ContentContainer>
                 { 
                 track &&
                 track.album &&
                 trackData &&
                 trackData[0].value ?
-                    <div className="content-container" id="features-container">
-                        <div className="features-track-information">
-                            <img className="features-track-art" src={track.album.images[0].url}></img>
-                            <div className="features-information">
-                                <div className="features-track-data">
-                                    <div className="features-track-name">{track.name}</div>
-                                    <div className="features-track-artist">{formatArtists(track.artists)}</div>
-                                    <div className="features-track-album">{track.album.name} • {formatYear(track.album.release_date)}</div>
-                                </div>
-                                <div className="track-features">
-                                    <div className="feature-wrapper">
-                                        <div className="feature-item">{duration}</div>
+                    <MainContent>
+                        <TrackInformation>
+                            <TrackArt src={track.album.images[0].url}></TrackArt>
+                            <FeaturesInformation>
+                                <TrackData>
+                                    <TrackName>{track.name}</TrackName>
+                                    <div>{formatArtists(track.artists)}</div>
+                                    <div>{track.album.name} • {formatYear(track.album.release_date)}</div>
+                                </TrackData>
+                                <TrackAnalysis>
+                                    <AnalysisWrapper>
+                                        <FeatureItem>{duration}</FeatureItem>
                                         <div>Duration</div>
-                                    </div>
-                                    <div className="feature-wrapper">
-                                        <div className="feature-item">{key}</div>
+                                    </AnalysisWrapper>
+                                    <AnalysisWrapper>
+                                        <FeatureItem>{key}</FeatureItem>
                                         <div>Key</div>
-                                    </div>
-                                    <div className="feature-wrapper">
-                                        <div className="feature-item">{mode}</div>
+                                    </AnalysisWrapper>
+                                    <AnalysisWrapper>
+                                        <FeatureItem>{mode}</FeatureItem>
                                         <div>Modality</div>
-                                    </div>
-                                    <div className="feature-wrapper">
-                                        <div className="feature-item">{timeSignature}</div>
+                                    </AnalysisWrapper>
+                                    <AnalysisWrapper>
+                                        <FeatureItem>{timeSignature}</FeatureItem>
                                         <div>Time signature</div>
-                                    </div>
-                                    <div className="feature-wrapper">
-                                        <div className="feature-item">{tempo} (BPM)</div>
+                                    </AnalysisWrapper>
+                                    <AnalysisWrapper>
+                                        <FeatureItem>{tempo} (BPM)</FeatureItem>
                                         <div>Tempo</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="chart-container">
+                                    </AnalysisWrapper>
+                                </TrackAnalysis>
+                            </FeaturesInformation>
+                        </TrackInformation>
+                        <ChartContainer>
                             <AudioChart trackData={trackData} />
-                        </div>
-                    </div> : 
-                    <div>Loading...</div>
+                        </ChartContainer>
+                    </MainContent> : 
+                    <LoadingPage />
                 }
-            </div>
-        </div>
+            </ContentContainer>
+        </Container>
     )
 
 }
