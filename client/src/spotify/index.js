@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import SpotifyWebApi from 'spotify-web-api-node'
 
-const token = 'BQCxXrZWhurzSWkR1vvB0cV8ISmVK1OGpOV-a4Q99px0sHpBmwDDkH12IVWWmO9e3mU34y3yb13P3zQn6Pn7xdcVJNwxdS9R7SzW23HtzpY4L_n7l9ZQf1APEQLcG39mI12FMiKr2DjHjGUc95KejT_hmJHx6dxb9PB5DcNa8FbxSFXLOEUTl0yit3nINyMEARF6NInI78ZK'
+const token = 'BQC7EXfbQFx9eue6id3BiuWlTSI0SUIu8MuJVpcHXbqpyRdzz1ujuwx-P_YH5Y0eERoxnuXZDtoKsf6vSaYjE9G5-z2qRmLDWzv0nAHleJATwW8r66bR3nvQFnN0KCZXdrGYpipAlazG_s8Wt4nUpRaxzyEa3uQ-7MPqaTNzdbXtEH6H_IAYW5v6eJLKbr1aCiBiPjwFtzuF'
 const spotifyApi = new SpotifyWebApi();
 spotifyApi.setAccessToken(token);
 
@@ -33,7 +33,7 @@ export function useGetFollowing() {
 }
 
 export function useGetPlaylists() {
-    const [playlists, setPlaylists] = useState();
+    const [playlists, setPlaylists] = useState([]);
     useEffect(() => {
         spotifyApi.getUserPlaylists().then((data) => {
             console.log(data.body)
@@ -46,7 +46,7 @@ export function useGetPlaylists() {
 }
 
 export function useGetPlaylist(playlistId) {
-    const[playlist, setPlaylist] = useState();
+    const[playlist, setPlaylist] = useState([]);
     useEffect(() => {
         spotifyApi.getPlaylist(playlistId).then((data) => {
             console.log(data.body);
@@ -59,9 +59,9 @@ export function useGetPlaylist(playlistId) {
 }
 
 export function useGetTopArtists() {
-    const[artists, setArtists] = useState();
+    const[artists, setArtists] = useState([]);
     useEffect(() => {
-        spotifyApi.getMyTopArtists().then((data) => {
+        spotifyApi.getMyTopArtists(('time_range=long_term')).then((data) => {
             console.log(data.body);
             setArtists(data.body);
         }, (e) => {
@@ -72,9 +72,9 @@ export function useGetTopArtists() {
 }
 
 export function useGetTopTracks() {
-    const[tracks, setTracks] = useState();
+    const[tracks, setTracks] = useState([]);
     useEffect(() => {
-        spotifyApi.getMyTopTracks().then((data) => {
+        spotifyApi.getMyTopTracks(('time_range=long_term')).then((data) => {
             console.log(data.body);
             setTracks(data.body);
         }, (e) => {
@@ -84,8 +84,9 @@ export function useGetTopTracks() {
     return tracks;
 }
 
+
 export function useGetTrack(id) {
-    const[track, setTrack] = useState();
+    const[track, setTrack] = useState([]);
     useEffect(() => {
         spotifyApi.getTrack(id).then((data) => {
             console.log(data.body);
@@ -98,7 +99,7 @@ export function useGetTrack(id) {
 }
 
 export function useGetAudioFeatures(id) {
-    const [features, setFeatures] = useState();
+    const [features, setFeatures] = useState([]);
     useEffect(() => {
         spotifyApi.getAudioFeaturesForTrack(id).then((data) => {
             console.log(data.body);
@@ -120,6 +121,43 @@ export function formatArtists(artists) {
         str += artists[i].name + ", ";
     }
     return str
+}
+
+export function getTrackAudioFeatures(features) {
+    let arr = [
+        {
+            label: "acousticness",
+            value: features?.acousticness
+        },
+        {
+            label: "danceability",
+            value: features?.danceability
+        },
+        {
+            label: "energy",
+            value: features?.energy
+        },
+        {
+            label: "instrumentalness",
+            value: features?.instrumentalness
+        },
+        {
+            label: "liveness",
+            value: features?.liveness
+        },
+        {
+            label: "speechiness",
+            value: features?.speechiness
+        },
+        {
+            label: "valence",
+            value: features?.valence
+        }
+    ]
+    if (arr[0].value) {
+        return arr;
+    }
+    return null;
 }
 
 export function formatYear(str) {

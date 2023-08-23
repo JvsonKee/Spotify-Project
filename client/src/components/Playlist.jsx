@@ -8,30 +8,37 @@ function Playlist() {
     const playlist = useGetPlaylist(id);
     
     return (
-        <div id = "container">
+        <div className="container">
             <NavBar />
-            <div className="playlist-container">
-                <div className="playlist-information">
-                    <img className="playlist-art" src={playlist?.images?.[0]?.url}></img>
-                    <div className="playlist-data">
-                        <div className="playlist-name">{playlist?.name}</div>
-                        <div className="playlist-owner">{playlist?.owner?.display_name}</div>
-                        <div className="playlist-total-tracks">{playlist?.tracks?.total} tracks</div>
-                    </div>
-                </div>
-                <div className="tracks">
-                    {playlist?.tracks?.items?.map((data, i) => (
-                        <Link to={"/track/" + data?.track?.id} className="track-information" key = {i}>
-                            <div className="track-index">{i + 1}</div>
-                            <img className="track-art" src={data?.track?.album?.images?.[0].url}></img>
-                            <div className="track-matrix">
-                                <div className="track-name">{data?.track?.name}</div>
-                                <div className="track-artists">{formatArtists(data?.track?.artists)}</div>
-                                <div className="track-album">{data?.track?.album.name}</div>
+            <div className="main-content-container">
+                { 
+                playlist &&
+                playlist.tracks ?
+                    <div className="content-container" id="playlist-container">
+                        <div className="playlist-information">
+                            <img className="playlist-art" src={playlist.images[0].url}></img>
+                            <div className="playlist-data">
+                                <div className="playlist-name">{playlist.name}</div>
+                                <div className="playlist-owner">{playlist.owner.display_name}</div>
+                                <div className="playlist-total-tracks">{playlist.tracks.total} tracks</div>
                             </div>
-                        </Link>
-                    ))}
-                </div>
+                        </div>
+                        <div className="tracks">
+                            {playlist.tracks.items.map((data, i) => (
+                                <Link to={"/track/" + data.track.id} className="track-information" key = {i}>
+                                    <div className="index">{i + 1}</div>
+                                    <img className="track-art" src={data.track.album.images[0].url}></img>
+                                    <div className="track-matrix">
+                                        <div className="track-name">{data.track.name}</div>
+                                        <div className="track-artists">{formatArtists(data.track.artists)}</div>
+                                        <div className="track-album">{data.track.album.name}</div>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </div> : 
+                    <div>Loading...</div>
+                }
             </div>
         </div>
     )
