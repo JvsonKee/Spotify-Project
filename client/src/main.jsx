@@ -8,7 +8,7 @@ import AudioFeatures from './components/AudioFeatures'
 
 const router = createHashRouter([
   {
-    path: "/*",
+    path: "/",
     element: <App />,
   },
   {
