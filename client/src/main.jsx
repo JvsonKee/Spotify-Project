@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import Playlists from './components/Playlists'
 import App from './components/App';
@@ -6,7 +6,7 @@ import Main from './components/Playlist'
 import Profile from './components/Profile';
 import AudioFeatures from './components/AudioFeatures'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <App />,
