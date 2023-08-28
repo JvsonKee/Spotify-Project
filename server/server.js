@@ -13,6 +13,7 @@ const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET
 const REDIRECT_URI = process.env.REDIRECT_URI;  
 const FRONTEND_URI = process.env.FRONTEND_URI; 
+const temp_uri = 'http://localhost:5173'
 
 
 let spotifyApi = new SpotifyWebApi({
@@ -49,7 +50,7 @@ app.get('/callback', (req, res) => {
         console.log(access_token);
         console.log('success');
 
-        res.redirect(`${FRONTEND_URI}` + 'access_token=' + access_token);
+        res.redirect(`${temp_uri}` + '?access_token=' + access_token);
 
         setInterval(async () => {
             const data = await spotifyApi.refreshAccessToken();
