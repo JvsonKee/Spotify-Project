@@ -74,6 +74,7 @@ export const TopHeader = styled(Link)`
     font-weight: 600;
     padding-bottom: 5px;
     width: 100px;
+    transition: 0.3s ease-in-out;
     &:hover {
         color: var(--accent-green);
     }
