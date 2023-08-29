@@ -6,17 +6,22 @@ import {
     Menu
 } from "./styles/Dropdown.styled";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import propTypes from 'prop-types';
 
 
-function Dropdown() {
+function Dropdown( {setStatus} ) {
     const [open, setOpen] = useState(false); 
     const [selected, setSelected] = useState('All Time');
 
+    useEffect(() => {
+        setStatus(selected);
+    })
+
     return (
-        <DropdownContainer className="dropdown" id={selected} onClick={() => {setOpen(!open)}}>
-            <Select className='select'>
-                <Selected className='selected'>{selected}</Selected>
+        <DropdownContainer onClick={() => {setOpen(!open)}}>
+            <Select>
+                <Selected>{selected}</Selected>
                 <Caret icon={faCaretDown} className={`${open? 'active' : 'inactive'}`}/>
             </Select>
             <Menu className={`${open? 'active' : 'inactive'}`}>
@@ -26,6 +31,10 @@ function Dropdown() {
             </Menu>
         </DropdownContainer>
     )
+}
+
+Dropdown.propTypes = {
+    setStatus : propTypes.func
 }
 
 export default Dropdown;

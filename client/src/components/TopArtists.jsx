@@ -2,25 +2,20 @@ import NavBar from "./NavBar";
 import { Container } from "./styles/Container";
 import GlobalStyles from "./styles/Global";
 import { ContentContainer } from "./styles/ContentContainer";
-import TopTracksList from "./TopTracksList";
 import LoadingPage from "./LoadingPage";
-import { useState } from "react";
-import {
-    Header,
-    HeaderContainer,
-    MainContent,
-} from "./styles/TopTracks.styled";
 import Dropdown from "./Dropdown";
-
+import { useState } from "react";
+import { MainContent } from "./styles/TopArtists.styled";
+import { Header, HeaderContainer } from "./styles/TopTracks.styled"
+import TopArtistsList from "./TopArtistsList";
 
 const SHORT = 'time_range=short_term';
 const MEDIUM = 'time_range=medium_term';
 const LONG = 'time_range=long_term';
 
-
-function TopTracks() {
+function TopArtists() {
     const [status, setStatus] = useState('All Time');
-
+    console.log({status});
     return (
         <Container>
             <GlobalStyles />
@@ -28,19 +23,19 @@ function TopTracks() {
             <ContentContainer>
                 <MainContent>
                     <HeaderContainer>
-                        <Header>Top Tracks</Header>
+                        <Header>Top Artists</Header>
                         <Dropdown setStatus={setStatus} />
                     </HeaderContainer>
                     {
-                        status == 'All Time' ? <TopTracksList range={LONG} /> :
-                        status == 'Last 6 Months' ? <TopTracksList range={MEDIUM} /> :
-                        status == 'Last 4 Weeks' ? <TopTracksList range={SHORT} /> :
+                        status == 'All Time' ? <TopArtistsList range={LONG}/> :
+                        status == 'Last 6 Months' ? <TopArtistsList range={MEDIUM}/> :
+                        status == 'Last 4 Weeks' ? <TopArtistsList range={SHORT}/> :
                         <LoadingPage />
-                    }       
-                </MainContent>   
+                    }
+                </MainContent>
             </ContentContainer>
         </Container>
     )
 }
 
-export default TopTracks;
+export default TopArtists;

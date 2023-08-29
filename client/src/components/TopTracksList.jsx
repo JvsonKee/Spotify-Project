@@ -10,11 +10,12 @@ import propTypes from 'prop-types';
 import { TrackMatrix } from "./styles/TrackMatrix";
 import { useGetTopTracks, formatArtists } from "../spotify";
 import LoadingPage from "./LoadingPage";
+import { ListContainer } from "./styles/TopArtistsList.styled";
 
 function TopTracksList( {range} ) {
     let topTracks = useGetTopTracks(range);
     return (
-        <TracksContainer>
+        <ListContainer>
             {
                 topTracks &&
                 topTracks.items ? 
@@ -32,7 +33,7 @@ function TopTracksList( {range} ) {
                     </TracksContainer>
                 : <LoadingPage />
             }
-        </TracksContainer>
+        </ListContainer>
     )
 }
 

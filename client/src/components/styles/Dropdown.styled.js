@@ -10,16 +10,22 @@ export const Select = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
     margin-bottom: 10px;
+    color: var(--text-grey);
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+       color: var(--text-white);
+    }
 `
 
 export const Selected = styled.span`
-
+    font-size: 15px;
 `
 
 export const Caret = styled(FontAwesomeIcon)`
-    font-size: 16px;
+    font-size: 15px;
     transition: 0.4s;
 
     &:hover {
@@ -41,8 +47,8 @@ export const Menu = styled.div`
     width: 200px;
     height: 100px;
     border-radius: 10px;
-    cursor: pointer;
     font-size: 15px;
+    cursor: pointer;
 
     div {
         width: 180px;

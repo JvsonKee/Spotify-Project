@@ -6,6 +6,7 @@ import Main from './components/Playlist';
 import Profile from './components/Profile';
 import AudioFeatures from './components/AudioFeatures';
 import TopTracks from './components/TopTracks';
+import TopArtists from './components/TopArtists';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: 'top-tracks',
     element: <TopTracks />
+  },
+  {
+    path: 'top-artists',
+    element: <TopArtists />
   }
 ]);
 

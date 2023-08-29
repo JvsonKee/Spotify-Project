@@ -74,7 +74,7 @@ function Profile() {
                                 ))}
                             </TopCategory>
                             <TopCategory>
-                                <TopHeader>Top Artists</TopHeader>
+                                <TopHeader to="/top-artists">Top Artists</TopHeader>
                                 {topArtists.items.slice(0, 5).map((artist, i) => (
                                     <ArtistCard key={i}>
                                         <Index>{i + 1}</Index>
