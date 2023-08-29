@@ -10,7 +10,6 @@ export const MainContent = styled.div`
     width: 70vw;
     height: 87vh;
     padding: 5vh 5vw;
-    display: flex;
     gap: 50px;
     overflow: scroll;
 

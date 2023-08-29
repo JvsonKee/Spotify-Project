@@ -59,29 +59,29 @@ export function useGetPlaylist(playlistId) {
     return playlist;
 }
 
-export function useGetTopArtists() {
+export function useGetTopArtists(timeRange) {
     const[artists, setArtists] = useState([]);
     useEffect(() => {
-        spotifyApi.getMyTopArtists(('time_range=long_term')).then((data) => {
+        spotifyApi.getMyTopArtists((timeRange)).then((data) => {
             console.log(data.body);
             setArtists(data.body);
         }, (e) => {
             console.log(e);
         })
-    }, []);
+    }, [timeRange]);
     return artists;
 }
 
-export function useGetTopTracks() {
+export function useGetTopTracks(timeRange) {
     const[tracks, setTracks] = useState([]);
     useEffect(() => {
-        spotifyApi.getMyTopTracks(('time_range=long_term')).then((data) => {
+        spotifyApi.getMyTopTracks((timeRange)).then((data) => {
             console.log(data.body);
             setTracks(data.body);
         }, (e) => {
             console.log(e);
         })
-    }, []);
+    }, [timeRange]);
     return tracks;
 }
 

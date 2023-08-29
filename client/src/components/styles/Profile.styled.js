@@ -67,10 +67,16 @@ export const TopCategory = styled.div`
     gap: 10px;
 `
 
-export const TopHeader = styled.div`
+export const TopHeader = styled(Link)`
+    text-decoration: none;
+    color: var(--text-white);
     font-size: 18px;
     font-weight: 600;
-    padding-bottom: 5px;    
+    padding-bottom: 5px;
+    width: 100px;
+    &:hover {
+        color: var(--accent-green);
+    }
 `
 
 export const Index = styled.div`

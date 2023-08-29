@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const NavContainer = styled.div`
     display: flex;
@@ -14,6 +15,10 @@ export const NavContainer = styled.div`
     }
 `
 
+export const FAIcon = styled(FontAwesomeIcon)`
+    font-size: 17px;
+`
+
 export const Nav = styled.div`
     display: flex;
     flex-direction: column;
@@ -24,6 +29,7 @@ export const Nav = styled.div`
     width: 18vw;
     height: 97vh;
     background-color: var(--light-black);
+    font-size: 13px;
 
     @media screen and (max-width: 820px) {
         flex-direction: row;
@@ -33,16 +39,34 @@ export const Nav = styled.div`
         border-radius: 0px;
         background-color: var(--dark-black);
     }
-`
 
-export const NavItem = styled(Link)`
-    color: var(--text-grey);
-    text-decoration: none;
-    transition: 0.3s ease-in-out;
-    &:hover {
-        color: var(--text-white);
+    & a.active ${FAIcon} {
+        color: var(--accent-green);
     }
 
+    & a.active {
+        color: var(--text-white);
+    }
+`
+
+export const NavItem = styled(NavLink)`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 5%;
+    color: var(--text-grey);
+    text-decoration: none;
+
+    & span, ${FAIcon} {
+        transition: 0.3s ease-in-out;
+    }
+    &:hover span {
+        color: var(--text-white);
+    }
+    &:hover ${FAIcon} {
+        color: var(--accent-green);
+    }
 `
 
 export const SpotifyIcon = styled.img`

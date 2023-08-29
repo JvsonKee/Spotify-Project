@@ -30,11 +30,13 @@ import {
     ArtistPicture
 } from "./styles/Profile.styled";
 
+const LONG = 'time_range=long_term'
+
 function Profile() {
     const profile = useGetUser();
     const following = useGetFollowing();
-    const topArtists = useGetTopArtists();
-    const topTracks = useGetTopTracks();
+    const topArtists = useGetTopArtists(LONG);
+    const topTracks = useGetTopTracks(LONG);
     
     return (
         <Container>
@@ -59,7 +61,7 @@ function Profile() {
                         </ProfileInformation>
                         <TopItems>
                             <TopCategory>
-                                <TopHeader>Top Tracks</TopHeader>
+                                <TopHeader to="/top-tracks">Top Tracks</TopHeader>
                                 {topTracks.items.slice(0, 5).map((track, i) => (
                                     <TrackCard to={"/track/" + track.id} key={i}>
                                         <Index>{i + 1}</Index>
