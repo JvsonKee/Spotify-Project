@@ -5,10 +5,10 @@ import { ContentContainer } from "./styles/ContentContainer";
 import TopTracksList from "./TopTracksList";
 import LoadingPage from "./LoadingPage";
 import { useState } from "react";
+import { MainContent } from "./styles/MainContent";
 import {
     Header,
     HeaderContainer,
-    MainContent,
 } from "./styles/TopTracks.styled";
 import Dropdown from "./Dropdown";
 

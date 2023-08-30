@@ -7,14 +7,13 @@ import { Container } from './styles/Container';
 import { ContentContainer } from './styles/ContentContainer';
 import GlobalStyles from './styles/Global';
 import { TrackMatrix } from './styles/TrackMatrix';
+import { MainContent } from './styles/MainContent';
 import { 
-    MainContent,
     PlaylistInformation,
     PlaylistArt,
     PlaylistData,
     PlaylistName,
 } from './styles/Playlist.styled';
-
 import {
     Index,
     TracksContainer,

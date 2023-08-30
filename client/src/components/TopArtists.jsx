@@ -1,13 +1,13 @@
-import NavBar from "./NavBar";
-import { Container } from "./styles/Container";
-import GlobalStyles from "./styles/Global";
-import { ContentContainer } from "./styles/ContentContainer";
-import LoadingPage from "./LoadingPage";
-import Dropdown from "./Dropdown";
-import { useState } from "react";
-import { MainContent } from "./styles/TopArtists.styled";
-import { Header, HeaderContainer } from "./styles/TopTracks.styled"
-import TopArtistsList from "./TopArtistsList";
+import NavBar from './NavBar';
+import { Container } from './styles/Container';
+import GlobalStyles from './styles/Global';
+import { ContentContainer } from './styles/ContentContainer';
+import LoadingPage from './LoadingPage';
+import Dropdown from './Dropdown';
+import { useState } from 'react';
+import { MainContent } from './styles/MainContent';
+import { Header, HeaderContainer } from './styles/TopTracks.styled';
+import TopArtistsList from './TopArtistsList';
 
 const SHORT = 'time_range=short_term';
 const MEDIUM = 'time_range=medium_term';

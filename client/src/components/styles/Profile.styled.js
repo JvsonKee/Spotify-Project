@@ -1,24 +1,12 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { MainContent } from './MainContent';
 
-export const MainContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 50px;
-    background-color: var(--light-black);
-    border-radius: 15px;
-    width: 70vw;
-    height: 87vh;
-    padding: 5vh 5vw;
-    overflow: scroll;
+export const Main = styled(MainContent)`
 
     @media screen and (max-width: 820px) {
-        justify-content: space-between;
-        width: 100%;
         padding: 5vh 10vw;
         gap: 50px;
-        height: 82vh;
     }
 `
 

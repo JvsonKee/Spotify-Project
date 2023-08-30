@@ -1,9 +1,9 @@
 import NavBar from './NavBar.jsx';
 import { useGetPlaylists } from '../spotify/index.js';
-import LoadingPage from './LoadingPage.jsx';
-import { Container } from './styles/Container.js';
+import LoadingPage from './LoadingPage';
+import { Container } from './styles/Container';
+import { MainContent } from './styles/MainContent';
 import { 
-    MainContent,
     Header,
     PlaylistsContainer,
     PlaylistCard,

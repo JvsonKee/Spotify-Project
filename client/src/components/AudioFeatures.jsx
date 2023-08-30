@@ -12,12 +12,11 @@ import {
 } from '../spotify';
 import { useParams } from 'react-router-dom';
 import LoadingPage from './LoadingPage';
-
 import GlobalStyles from './styles/Global';
 import { Container } from './styles/Container';
 import { ContentContainer } from './styles/ContentContainer';
+import { MainContent } from './styles/MainContent';
 import { 
-    MainContent,
     TrackInformation,
     TrackArt,
     FeaturesInformation,
@@ -28,6 +27,7 @@ import {
     FeatureItem,
     ChartContainer
 } from './styles/AudioFeatures.styled';
+
 
 function AudioFeatures() {
 

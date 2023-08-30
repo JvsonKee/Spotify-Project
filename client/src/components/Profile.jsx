@@ -13,7 +13,7 @@ import { Container } from "./styles/Container";
 import { ContentContainer } from "./styles/ContentContainer";
 import { TrackMatrix } from "./styles/TrackMatrix";
 import { 
-    MainContent, 
+    Main, 
     ProfileInformation, 
     ProfilePicture, 
     DisplayName, 
@@ -50,7 +50,7 @@ function Profile() {
                 topTracks &&
                 topArtists.items &&
                 topTracks.items ? 
-                    <MainContent>
+                    <Main>
                         <ProfileInformation>
                             <ProfilePicture src={profile.images[1].url}></ProfilePicture>
                             <DisplayName> {profile.display_name} </DisplayName>
@@ -84,7 +84,7 @@ function Profile() {
                                 ))}
                             </TopCategory>
                         </TopItems>
-                    </MainContent> : 
+                    </Main> : 
                     <LoadingPage />
                 }
             </ContentContainer>
