@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const MainContent = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     gap: 30px;
     background-color: var(--light-black);
     border-radius: 15px;
