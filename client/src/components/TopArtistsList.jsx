@@ -1,7 +1,6 @@
 import propTypes from 'prop-types';
 import LoadingPage from './LoadingPage';
 import { useGetTopArtists } from '../spotify';
-import { ListContainer } from './styles/TopArtistsList.styled';
 import {
     ArtistContainer,
     ArtistCard,
@@ -13,7 +12,7 @@ function TopArtistsList( {range} ) {
     let topArtists = useGetTopArtists(range);
     
     return (    
-        <ListContainer>
+        <div>
             {
                 topArtists &&
                 topArtists.items ? 
@@ -27,7 +26,7 @@ function TopArtistsList( {range} ) {
                 </ArtistContainer> :
                 <LoadingPage />
             }
-        </ListContainer>
+        </div>
 
     )
 }

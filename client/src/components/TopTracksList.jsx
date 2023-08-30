@@ -4,18 +4,18 @@ import {
     TrackCard,
     TrackArt,
     TrackName,
-    TrackAlbumArtists
-} from "./styles/TopTracks.styled";
+    TrackArtists,
+    TrackAlbum
+} from "./styles/Tracklist";
 import propTypes from 'prop-types';
 import { TrackMatrix } from "./styles/TrackMatrix";
 import { useGetTopTracks, formatArtists } from "../spotify";
 import LoadingPage from "./LoadingPage";
-import { ListContainer } from "./styles/TopArtistsList.styled";
 
 function TopTracksList( {range} ) {
     let topTracks = useGetTopTracks(range);
     return (
-        <ListContainer>
+        <div>
             {
                 topTracks &&
                 topTracks.items ? 
@@ -26,14 +26,15 @@ function TopTracksList( {range} ) {
                             <TrackArt src={track.album.images[0].url}></TrackArt>
                             <TrackMatrix>
                                 <TrackName>{track.name}</TrackName>
-                                <TrackAlbumArtists>{formatArtists(track.artists)} • {track.album.name}</TrackAlbumArtists>
+                                <TrackArtists>{formatArtists(track.artists)}</TrackArtists>
+                                <TrackAlbum>{track.album.name}</TrackAlbum>
                             </TrackMatrix>
                         </TrackCard>
                     ))}
                     </TracksContainer>
                 : <LoadingPage />
             }
-        </ListContainer>
+        </div>
     )
 }
 

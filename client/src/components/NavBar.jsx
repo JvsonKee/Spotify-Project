@@ -8,7 +8,9 @@ import {
 } from "./styles/NavBar.styled"
 import { 
     faUser,
-    faLinesLeaning
+    faLinesLeaning,
+    faStar,
+    faMusic
 } from '@fortawesome/free-solid-svg-icons'
 
 function NavBar() {
@@ -24,6 +26,14 @@ function NavBar() {
                     <FAIcon icon={faLinesLeaning} />
                     <span>Playlists</span>
                 </NavItem>
+                <NavItem to="/top-tracks">
+                    <FAIcon icon={faMusic} />
+                    <span>Top Tracks</span>
+                </NavItem>
+                <NavItem to="/top-artists">
+                    <FAIcon icon={faStar} />
+                    <span>Top Artists</span>
+                </NavItem>  
             </Nav>
         </NavContainer>
 

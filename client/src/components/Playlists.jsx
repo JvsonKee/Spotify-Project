@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import NavBar from './NavBar.jsx';
 import { useGetPlaylists } from '../spotify/index.js';
 import LoadingPage from './LoadingPage.jsx';
@@ -29,10 +28,10 @@ function Playlists() {
                         <Header>Your Playlists</Header>
                         <PlaylistsContainer>
                             {playlists.items.map((playlist, i) => (
-                                <PlaylistCard key={i}>
-                                    <Link to={"/playlist/" + playlist.id}><PlaylistArt src={playlist.images[0].url}></PlaylistArt></Link>
+                                <PlaylistCard to={"/playlist/" + playlist.id} key={i}>
+                                    <PlaylistArt src={playlist.images[0].url}></PlaylistArt>
                                     <PlaylistInformation>
-                                        <PlaylistName to={"/playlist/" + playlist.id}>{playlist.name}</PlaylistName>
+                                        <PlaylistName>{playlist.name}</PlaylistName>
                                         <TrackTotal>{playlist.tracks.total} tracks</TrackTotal>
                                     </PlaylistInformation>
                                 </PlaylistCard>

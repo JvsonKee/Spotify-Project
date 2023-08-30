@@ -13,12 +13,17 @@ import {
     PlaylistArt,
     PlaylistData,
     PlaylistName,
-    Tracks,
-    TrackInformation,
-    Index,
-    TrackArt, 
-    TrackName
 } from './styles/Playlist.styled';
+
+import {
+    Index,
+    TracksContainer,
+    TrackCard,
+    TrackArt,
+    TrackName,
+    TrackArtists,
+    TrackAlbum
+} from "./styles/Tracklist";
 
 function Playlist() {
     const { id } = useParams();
@@ -41,19 +46,19 @@ function Playlist() {
                                 <div>{playlist.tracks.total} tracks</div>
                             </PlaylistData>
                         </PlaylistInformation>
-                        <Tracks>
+                        <TracksContainer>
                             {playlist.tracks.items.map((data, i) => (
-                                <TrackInformation to={"/track/" + data.track.id} key = {i}>
+                                <TrackCard to={"/track/" + data.track.id} key = {i}>
                                     <Index>{i + 1}</Index>
                                     <TrackArt src={data.track.album.images[0].url}></TrackArt>
                                     <TrackMatrix>
                                         <TrackName>{data.track.name}</TrackName>
-                                        <div>{formatArtists(data.track.artists)}</div>
-                                        <div>{data.track.album.name}</div>
+                                        <TrackArtists>{formatArtists(data.track.artists)}</TrackArtists>
+                                        <TrackAlbum>{data.track.album.name}</TrackAlbum>
                                     </TrackMatrix>
-                                </TrackInformation>
+                                </TrackCard>
                             ))}
-                        </Tracks>
+                        </TracksContainer>
                     </MainContent> : 
                    <LoadingPage />
                 }

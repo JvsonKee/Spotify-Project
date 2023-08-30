@@ -5,7 +5,7 @@ export const MainContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 30px;
+    gap: 50px;
     background-color: var(--light-black);
     border-radius: 15px;
     width: 70vw;
