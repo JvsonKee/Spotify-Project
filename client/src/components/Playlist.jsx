@@ -59,7 +59,7 @@ function Playlist() {
                             ))}
                         </TracksContainer>
                     </MainContent> : 
-                   <LoadingPage />
+                   <LoadingPage type={'full'} />
                 }
             </ContentContainer>
         </Container>

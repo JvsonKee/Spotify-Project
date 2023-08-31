@@ -32,7 +32,7 @@ function TopTracksList( {range} ) {
                         </TrackCard>
                     ))}
                     </TracksContainer>
-                : <LoadingPage />
+                : <LoadingPage type={'half'} />
             }
         </div>
     )

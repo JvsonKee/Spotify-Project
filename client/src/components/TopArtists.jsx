@@ -30,7 +30,7 @@ function TopArtists() {
                         status == 'All Time' ? <TopArtistsList range={LONG}/> :
                         status == 'Last 6 Months' ? <TopArtistsList range={MEDIUM}/> :
                         status == 'Last 4 Weeks' ? <TopArtistsList range={SHORT}/> :
-                        <LoadingPage />
+                        <LoadingPage type={'full'} />
                     }
                 </MainContent>
             </ContentContainer>

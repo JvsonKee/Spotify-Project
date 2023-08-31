@@ -23,9 +23,10 @@ function Playlists() {
             <GlobalStyles />
             <NavBar />  
             <ContentContainer>
-                { playlists && playlists.items ?
-                    <MainContent>
-                        <Header>Your Playlists</Header>
+                <MainContent>
+                    <Header>Your Playlists</Header>
+                    { 
+                    playlists && playlists.items ?
                         <PlaylistsContainer>
                             {playlists.items.map((playlist, i) => (
                                 <PlaylistCard to={"/playlist/" + playlist.id} key={i}>
@@ -36,10 +37,10 @@ function Playlists() {
                                     </PlaylistInformation>
                                 </PlaylistCard>
                             ))}
-                        </PlaylistsContainer>
-                    </MainContent> :
-                    <LoadingPage />
-                }
+                        </PlaylistsContainer> :
+                        <LoadingPage type={'half'} />
+                    }
+                </MainContent>
             </ContentContainer>
         </Container>
        

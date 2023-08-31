@@ -35,7 +35,7 @@ function TopTracks() {
                         status == 'All Time' ? <TopTracksList range={LONG} /> :
                         status == 'Last 6 Months' ? <TopTracksList range={MEDIUM} /> :
                         status == 'Last 4 Weeks' ? <TopTracksList range={SHORT} /> :
-                        <LoadingPage />
+                        <LoadingPage type={'full'} />
                     }       
                 </MainContent>   
             </ContentContainer>

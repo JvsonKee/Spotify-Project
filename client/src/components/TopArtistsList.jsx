@@ -7,6 +7,7 @@ import {
     ArtistName,
     ArtistPicture,
 } from './styles/TopArtists.styled';
+import TopArtists from './TopArtists';
 
 function TopArtistsList( {range} ) {
     let topArtists = useGetTopArtists(range);
@@ -24,7 +25,7 @@ function TopArtistsList( {range} ) {
                         </ArtistCard>
                     ))}
                 </ArtistContainer> :
-                <LoadingPage />
+                <LoadingPage type={'half'} />
             }
         </div>
 

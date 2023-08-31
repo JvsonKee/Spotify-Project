@@ -89,10 +89,12 @@ export const PlaylistName = styled.div`
     text-decoration: none;
     transition: 0.4s ease-in-out;
 
-    &:hover {
-        cursor: pointer;
-        color: var(--accent-green);
-    }
+    @media screen and (min-width: 500px) {
+        &:hover {
+            cursor: pointer;
+            color: var(--accent-green);
+        }
+    } 
 
     @media screen and (max-width: 500px) {
         font-size: 15px;

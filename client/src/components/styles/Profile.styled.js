@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { MainContent } from './MainContent';
 
 export const Main = styled(MainContent)`
-
     @media screen and (max-width: 820px) {
         padding: 5vh 10vw;
         gap: 50px;

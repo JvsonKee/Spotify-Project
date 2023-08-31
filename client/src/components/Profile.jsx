@@ -44,12 +44,12 @@ function Profile() {
             <NavBar />
             <ContentContainer>
                 { 
-                profile && 
-                following && 
-                topArtists &&
-                topTracks &&
-                topArtists.items &&
-                topTracks.items ? 
+                    profile && 
+                    following && 
+                    topArtists &&
+                    topTracks &&
+                    topArtists.items &&
+                    topTracks.items ? 
                     <Main>
                         <ProfileInformation>
                             <ProfilePicture src={profile.images[1].url}></ProfilePicture>
@@ -85,7 +85,7 @@ function Profile() {
                             </TopCategory>
                         </TopItems>
                     </Main> : 
-                    <LoadingPage />
+                    <LoadingPage type={'full'} />
                 }
             </ContentContainer>
         </Container>

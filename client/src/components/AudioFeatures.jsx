@@ -92,7 +92,7 @@ function AudioFeatures() {
                             <AudioChart trackData={trackData} />
                         </ChartContainer>
                     </MainContent> : 
-                    <LoadingPage />
+                    <LoadingPage type={'full'} />
                 }
             </ContentContainer>
         </Container>

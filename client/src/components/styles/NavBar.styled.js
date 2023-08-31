@@ -10,7 +10,7 @@ export const NavContainer = styled.div`
     height: 100vh;
 
     @media screen and (max-width: 820px) {
-        width: 100vw;
+        width: 100%;
         height: 8vh;
     }
 `
