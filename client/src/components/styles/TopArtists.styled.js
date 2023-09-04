@@ -32,6 +32,6 @@ export const ArtistPicture = styled.img`
 export const ArtistName = styled.div`
     width: 150px;
     text-align: center;
-    font-size: 15px;
+    font-size: clamp(15px, 3vw, 16px);
     word-wrap: break-word;
 `

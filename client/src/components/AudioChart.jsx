@@ -86,7 +86,7 @@ function AudioChart( {trackData} ) {
 }
 
 AudioChart.propTypes = {
-    trackData: PropTypes.object
+    trackData: PropTypes.array
 }
 
 export default AudioChart;
