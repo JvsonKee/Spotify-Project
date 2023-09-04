@@ -15,7 +15,9 @@ import { TrackMatrix } from "./styles/TrackMatrix";
 import { 
     Main, 
     ProfileInformation, 
-    ProfilePicture, 
+    ProfilePicture,
+    PlaceholderPicture, 
+    FaIcon,
     DisplayName, 
     FollowItems, 
     TopItems, 
@@ -29,6 +31,7 @@ import {
     ArtistCard,
     ArtistPicture
 } from "./styles/Profile.styled";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 
 const LONG = 'time_range=long_term'
 
@@ -52,7 +55,11 @@ function Profile() {
                     topTracks.items ? 
                     <Main>
                         <ProfileInformation>
-                            <ProfilePicture src={profile.images[1].url}></ProfilePicture>
+                            {
+                                profile.images.length > 0 ? <ProfilePicture src={profile.images[1].url}></ProfilePicture> :
+                                <PlaceholderPicture><FaIcon icon={faUser}></FaIcon></PlaceholderPicture>
+                            }
+                            
                             <DisplayName> {profile.display_name} </DisplayName>
                             <FollowItems>
                                 <div>{profile.followers.total} <span>Followers</span></div>

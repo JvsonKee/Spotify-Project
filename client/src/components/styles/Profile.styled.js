@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { MainContent } from './MainContent';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Main = styled(MainContent)`
     @media screen and (max-width: 820px) {
@@ -17,8 +18,23 @@ export const ProfileInformation = styled.div`
 `
 
 export const ProfilePicture = styled.img`
-    width: 200px;
+    width: 220px;
     border-radius: 100%;
+`
+
+export const PlaceholderPicture = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    background-color: var(--hover);
+`
+
+export const FaIcon = styled(FontAwesomeIcon)`
+    font-size: 50px;
+    color: var(--text-grey);
 `
 
 export const DisplayName = styled.div`
