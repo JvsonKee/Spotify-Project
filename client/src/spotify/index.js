@@ -128,31 +128,31 @@ export function getTrackAudioFeatures(features) {
     let arr = [
         {
             label: "acousticness",
-            value: features?.acousticness
+            value: features.acousticness
         },
         {
             label: "danceability",
-            value: features?.danceability
+            value: features.danceability
         },
         {
             label: "energy",
-            value: features?.energy
+            value: features.energy
         },
         {
             label: "instrumentalness",
-            value: features?.instrumentalness
+            value: features.instrumentalness
         },
         {
             label: "liveness",
-            value: features?.liveness
+            value: features.liveness
         },
         {
             label: "speechiness",
-            value: features?.speechiness
+            value: features.speechiness
         },
         {
             label: "valence",
-            value: features?.valence
+            value: features.valence
         }
     ]
     if (arr[0].value) {
@@ -163,8 +163,8 @@ export function getTrackAudioFeatures(features) {
 
 export function formatYear(str) {
     let arr = [];
-    arr = str?.split('-');
-    return arr?.[0];
+    arr = str.split('-');
+    return arr[0];
 }
 
 export function formatDuration(durationMs) {

@@ -32,7 +32,7 @@ const GlobalStyles = createGlobalStyle`
     };
 
     :root {
-        --accent-green: #1CD760;
+        --accent-green: #1DB954;
         --dark-black: #000000;
         --light-black: #121212;
         --hover: #202020;
