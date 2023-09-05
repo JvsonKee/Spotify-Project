@@ -14,7 +14,7 @@ const LoginButton = styled.a`
     justify-content: center;
     align-items: center;
     border: 2px solid var(--accent-green);
-    border-radius: 70px;
+    border-radius: 40px;
     width: 250px;
     height: 75px;
     text-decoration: none;
@@ -25,6 +25,7 @@ const LoginButton = styled.a`
 
 
     &:hover {
+        border-color: var(--accent-green);
         background-color: var(--accent-green);
     }
 `
