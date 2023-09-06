@@ -2,6 +2,13 @@ import { Chart as ChartJS } from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2'
 import PropTypes from 'prop-types'
 import { useState } from 'react';
+import { styled } from 'styled-components';
+
+const ChartContainer = styled.div`
+    width: clamp(200px, 90vw, 600px);
+    height: clamp(200px, 90vw, 600px);
+`
+
 
 ChartJS.register();
 
@@ -40,8 +47,8 @@ function AudioChart( {trackData} ) {
     })
 
     return (
-        <div className="chart">
-            <Bar width='600px' height='600px'
+        <ChartContainer>
+            <Bar
                 data={ chartData }
                 options={{
                     layout: {
@@ -76,10 +83,12 @@ function AudioChart( {trackData} ) {
                         legend: {
                             display: false
                         },
-                    }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false
                 }}
             />
-        </div> 
+        </ChartContainer> 
     )
 }
 
