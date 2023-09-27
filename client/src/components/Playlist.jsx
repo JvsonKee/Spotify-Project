@@ -1,13 +1,20 @@
 import { useParams } from 'react-router-dom'
-import { useGetPlaylist, formatArtists } from '../spotify';
 import NavBar from './NavBar'
 import LoadingPage from './LoadingPage';
-
 import { Container } from './styles/Container';
 import { ContentContainer } from './styles/ContentContainer';
 import GlobalStyles from './styles/Global';
 import { TrackMatrix } from './styles/TrackMatrix';
 import { MainContent } from './styles/MainContent';
+import AudioChart from './AudioChart';
+import { ChartContainer } from './styles/AudioFeatures.styled';
+import {
+    useGetPlaylist,
+    formatArtists,
+    useGetTracksFeatures,
+    createFeatureArray,
+    getAudioFeaturesData,
+} from '../spotify';
 import { 
     PlaylistInformation,
     PlaylistArt,
@@ -27,6 +34,15 @@ import {
 function Playlist() {
     const { id } = useParams();
     const playlist = useGetPlaylist(id);
+
+    let features = useGetTracksFeatures(playlist?.tracks?.items);
+    console.log(features);
+
+    let playFeatures = createFeatureArray(features?.audio_features, 0);
+    console.log({playFeatures});
+
+    let featureData = getAudioFeaturesData(playFeatures);
+    console.log({featureData});
     
     return (
         <Container>
@@ -35,7 +51,9 @@ function Playlist() {
             <ContentContainer>
                 { 
                 playlist &&
-                playlist.tracks ?
+                playlist.tracks &&
+                featureData &&
+                featureData[0].value ?
                     <MainContent>
                         <PlaylistInformation>
                             <PlaylistArt src={playlist.images[0].url}></PlaylistArt>
@@ -45,6 +63,9 @@ function Playlist() {
                                 <div>{playlist.tracks.total} tracks</div>
                             </PlaylistData>
                         </PlaylistInformation>
+                        <ChartContainer>
+                            <AudioChart featureData={featureData} />    
+                        </ChartContainer>
                         <TracksContainer>
                             {playlist.tracks.items.map((data, i) => (
                                 <TrackCard to={"/track/" + data.track.id} key = {i}>

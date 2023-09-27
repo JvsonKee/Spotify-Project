@@ -8,7 +8,8 @@ import {
     formatDuration, 
     formatKey, 
     formatMode,
-    getTrackAudioFeatures,
+    getAudioFeaturesData,
+    createFeatureArray
 } from '../spotify';
 import { useParams } from 'react-router-dom';
 import LoadingPage from './LoadingPage';
@@ -43,8 +44,10 @@ function AudioFeatures() {
     let tempo = features.tempo;
     tempo = Math.round(tempo);
 
-    let trackData = getTrackAudioFeatures(features);
-   
+    let tempData = createFeatureArray(features, 1);
+    console.log({tempData});
+    let featureData = getAudioFeaturesData(tempData);
+    
     return(
         <Container>
             <GlobalStyles />
@@ -53,8 +56,8 @@ function AudioFeatures() {
                 { 
                 track &&
                 track.album &&
-                trackData &&
-                trackData[0].value ?
+                featureData &&
+                featureData[0].value ?
                     <MainContent>
                         <TrackInformation>
                             <TrackArt src={track.album.images[0].url}></TrackArt>
@@ -89,7 +92,7 @@ function AudioFeatures() {
                             </FeaturesInformation>
                         </TrackInformation>
                         <ChartContainer>
-                            <AudioChart trackData={trackData} />
+                            <AudioChart featureData={featureData} />
                         </ChartContainer>
                     </MainContent> : 
                     <LoadingPage type={'full'} />

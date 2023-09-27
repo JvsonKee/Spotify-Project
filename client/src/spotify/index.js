@@ -59,6 +59,54 @@ export function useGetPlaylist(playlistId) {
     return playlist;
 }
 
+export function useGetTracksFeatures(playlist) {
+    const [playlistFeatures, setPlaylistFeatures] = useState();
+    useEffect(() => {
+        let playlistIds = getPlaylistTrackIds(playlist);
+        spotifyApi.getAudioFeaturesForTracks(playlistIds).then((data) => {
+            console.log(data.body);
+            setPlaylistFeatures(data.body);
+        }, (e) => {
+            console.log(e);
+        });
+    }, [playlist]);
+    return playlistFeatures;
+}
+
+export function getPlaylistTrackIds(playlist) {
+    let ids = [];
+    for (let i = 0; i < playlist?.length; i++) {
+        let id = playlist[i]?.track?.id;
+        ids.push(id);
+    }
+    return ids;
+}
+
+export function createFeatureArray(tracksFeatures, mode) {
+    let featureArray = [0,0,0,0,0,0,0];
+    if (mode == 0) {
+        for (let i = 0; i < tracksFeatures?.length; i++) {
+            featureArray[0] += tracksFeatures[i]?.acousticness / tracksFeatures?.length;
+            featureArray[1] += tracksFeatures[i]?.danceability / tracksFeatures?.length;
+            featureArray[2] += tracksFeatures[i]?.energy / tracksFeatures?.length;
+            featureArray[3] += tracksFeatures[i]?.instrumentalness / tracksFeatures?.length;
+            featureArray[4] += tracksFeatures[i]?.liveness / tracksFeatures?.length;
+            featureArray[5] += tracksFeatures[i]?.speechiness / tracksFeatures?.length;
+            featureArray[6] += tracksFeatures[i]?.valence / tracksFeatures?.length;
+        }
+    } else if (mode == 1) {
+        featureArray[0] += tracksFeatures?.acousticness;
+            featureArray[1] += tracksFeatures?.danceability;
+            featureArray[2] += tracksFeatures?.energy;
+            featureArray[3] += tracksFeatures?.instrumentalness;
+            featureArray[4] += tracksFeatures?.liveness;
+            featureArray[5] += tracksFeatures?.speechiness;
+            featureArray[6] += tracksFeatures?.valence;
+    }
+    
+    return featureArray;
+}
+
 export function useGetTopArtists(timeRange) {
     const[artists, setArtists] = useState([]);
     useEffect(() => {
@@ -124,35 +172,35 @@ export function formatArtists(artists) {
     return str
 }
 
-export function getTrackAudioFeatures(features) {
+export function getAudioFeaturesData(features) {
     let arr = [
         {
             label: "acousticness",
-            value: features.acousticness
+            value: features[0]
         },
         {
             label: "danceability",
-            value: features.danceability
+            value: features[1]
         },
         {
             label: "energy",
-            value: features.energy
+            value: features[2]
         },
         {
             label: "instrumentalness",
-            value: features.instrumentalness
+            value: features[3]
         },
         {
             label: "liveness",
-            value: features.liveness
+            value: features[4]
         },
         {
             label: "speechiness",
-            value: features.speechiness
+            value: features[5]
         },
         {
             label: "valence",
-            value: features.valence
+            value: features[6]
         }
     ]
     if (arr[0].value) {

@@ -32,14 +32,14 @@ const borderColours = [
     'rgb(185, 71, 255)',
 ];
 
-function AudioChart( {trackData} ) {
+function AudioChart( {featureData} ) {
 
-    console.log('trackData from audio chart', trackData)
+    console.log('trackData from audio chart', featureData)
     const [chartData, setChartData] = useState( {
-        labels: trackData.map((data) => data.label),
+        labels: featureData?.map((data) => data.label),
         datasets: [{
             label: '',
-            data: trackData.map((score) => score.value),
+            data: featureData?.map((score) => score.value),
             backgroundColor: barColours,
             borderColor: borderColours,
             borderWidth: 1 
@@ -93,7 +93,7 @@ function AudioChart( {trackData} ) {
 }
 
 AudioChart.propTypes = {
-    trackData: PropTypes.array
+    featureData: PropTypes.array
 }
 
 export default AudioChart;
