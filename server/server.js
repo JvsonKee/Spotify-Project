@@ -50,7 +50,7 @@ app.get('/callback', (req, res) => {
         console.log(access_token);
         console.log('success');
 
-        res.redirect(`${FRONTEND_URI}` + '?access_token=' + access_token);
+        res.redirect(`${temp_uri}` + '?access_token=' + access_token);
 
         setInterval(async () => {
             const data = await spotifyApi.refreshAccessToken();
