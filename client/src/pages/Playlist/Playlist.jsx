@@ -38,13 +38,8 @@ function Playlist() {
     const playlist = useGetPlaylist(id);
     console.log({playlist})
     let features = useGetTracksFeatures(playlist?.tracks?.items);
-    console.log(features);
-
     let playFeatures = createFeatureArray(features?.audio_features, 0);
-    console.log({playFeatures});
-
     let featureData = getAudioFeaturesData(playFeatures);
-    console.log({featureData});
     
     return (
         <Container>

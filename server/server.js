@@ -13,7 +13,6 @@ const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET
 const REDIRECT_URI = process.env.REDIRECT_URI;  
 const FRONTEND_URI = process.env.FRONTEND_URI; 
-const temp_uri = 'http://localhost:5173'
 
 
 let spotifyApi = new SpotifyWebApi({
@@ -22,7 +21,7 @@ let spotifyApi = new SpotifyWebApi({
     clientSecret: CLIENT_SECRET
 });
 
-const scopes = ['user-read-email', 'user-read-email', 'playlist-read-private', 'user-follow-read', 'user-top-read'];
+const scopes = ['user-read-email', 'playlist-read-private', 'user-follow-read', 'user-top-read'];
 
 app.get('/login', (req, res) => {
     res.redirect(spotifyApi.createAuthorizeURL(scopes));
@@ -46,18 +45,12 @@ app.get('/callback', (req, res) => {
 
         spotifyApi.setAccessToken(access_token);
         spotifyApi.setRefreshToken(refresh_token);
-        
-        console.log(access_token);
-        console.log('success');
 
-        res.redirect(`${temp_uri}` + '?access_token=' + access_token);
+        res.redirect(`${FRONTEND_URI}` + '?access_token=' + access_token);
 
         setInterval(async () => {
             const data = await spotifyApi.refreshAccessToken();
             const access_token = data.body['access_token'];
-
-            console.log('Access token has been refreshed');
-            console.log({access_token});
 
             spotifyApi.setAccessToken(access_token);
         }, expires_in / 2 * 1000);
