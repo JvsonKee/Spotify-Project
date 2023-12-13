@@ -12,12 +12,13 @@ import {
     faStar,
     faMusic
 } from '@fortawesome/free-solid-svg-icons'
+import spotifyLogo from "../assets/Spotify_icon.png"
 
 function NavBar() {
     return (
         <NavContainer>
             <Nav>
-                <Link to="/profile"><SpotifyIcon src="../src/assets/Spotify_icon.png"></SpotifyIcon></Link>
+                <Link to="/profile"><SpotifyIcon src={spotifyLogo}></SpotifyIcon></Link>
                 <NavItem to="/profile">
                     <FAIcon icon={faUser} />
                     <span>Profile</span>
