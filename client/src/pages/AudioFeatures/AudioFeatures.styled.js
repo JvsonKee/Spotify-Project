@@ -38,7 +38,7 @@ export const TrackData = styled.div`
 
 export const TrackName = styled.div`
     color: var(--text-white);
-    font-size: 40px;
+    font-size: clamp(30px, 4vw, 40px);
 `
 
 export const TrackAnalysis = styled.div`
@@ -65,9 +65,7 @@ export const AnalysisWrapper = styled.div`
 export const FeatureItem = styled.div`
     color: var(--text-white);
     font-weight: 700;
-    font-size: clamp(12px, 3vw, 20px);
-
-
+    font-size: clamp(12px, 2vw, 18px);
 `
 
 export const ChartContainer = styled.div`

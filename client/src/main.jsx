@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
-import Playlists from './components/Playlists';
-import App from './components/App';
-import Main from './components/Playlist';
-import Profile from './components/Profile';
-import AudioFeatures from './components/AudioFeatures';
-import TopTracks from './components/TopTracks';
-import TopArtists from './components/TopArtists';
+import Playlists from './pages/Playlists/Playlists';
+import App from './App';
+import Main from './pages/Playlist/Playlist';
+import Profile from './pages/Profile/Profile';
+import AudioFeatures from './pages/AudioFeatures/AudioFeatures';
+import TopTracks from './pages/TopTracks/TopTracks';
+import TopArtists from './pages/TopArtists/TopArtists';
 
 const router = createBrowserRouter([
   {

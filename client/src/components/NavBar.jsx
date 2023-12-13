@@ -17,7 +17,7 @@ function NavBar() {
     return (
         <NavContainer>
             <Nav>
-                <Link to="/profile"><SpotifyIcon src="../src/images/Spotify_icon.png"></SpotifyIcon></Link>
+                <Link to="/profile"><SpotifyIcon src="../src/assets/Spotify_icon.png"></SpotifyIcon></Link>
                 <NavItem to="/profile">
                     <FAIcon icon={faUser} />
                     <span>Profile</span>

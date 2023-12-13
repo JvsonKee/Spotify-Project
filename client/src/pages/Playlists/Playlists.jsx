@@ -1,8 +1,8 @@
-import NavBar from './NavBar.jsx';
-import { useGetPlaylists } from '../spotify/index.js';
-import LoadingPage from './LoadingPage';
-import { Container } from './styles/Container';
-import { MainContent } from './styles/MainContent';
+import NavBar from '../../components/NavBar.jsx';
+import { useGetPlaylists } from '../../spotify/index.js';
+import LoadingPage from '../../components/LoadingPage.jsx';
+import { Container } from '../../components/styles/Container.js';
+import { MainContent } from '../../components/styles/MainContent.js';
 import { 
     Header,
     PlaylistsContainer,
@@ -11,9 +11,9 @@ import {
     PlaylistInformation,
     PlaylistName,
     TrackTotal
-} from './styles/Playlists.styled.js';
-import GlobalStyles from './styles/Global.js';
-import { ContentContainer } from './styles/ContentContainer.js';
+} from './Playlists.styled.js';
+import GlobalStyles from '../../components/styles/Global.js';
+import { ContentContainer } from '../../components/styles/ContentContainer.js';
 
 
 function Playlists() {

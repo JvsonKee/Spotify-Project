@@ -6,8 +6,7 @@ import {
     ArtistCard,
     ArtistName,
     ArtistPicture,
-} from './styles/TopArtists.styled';
-import TopArtists from './TopArtists';
+} from '../pages/TopArtists/TopArtists.styled';
 
 function TopArtistsList( {range} ) {
     let topArtists = useGetTopArtists(range);
