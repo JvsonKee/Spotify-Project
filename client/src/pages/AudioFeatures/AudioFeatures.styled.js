@@ -52,6 +52,14 @@ export const TrackAnalysis = styled.div`
     font-size: 11px;
 `
 
+export const AlbumLink = styled.a`
+    color: var(--text-grey);
+    transition: 0.3s ease-in-out;
+    &:hover {
+        color: var(--text-white);
+    }
+`
+
 export const AnalysisWrapper = styled.div`
     display: flex;
     flex-direction: column;

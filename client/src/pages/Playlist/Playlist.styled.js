@@ -33,3 +33,7 @@ export const PlaylistName = styled.div`
     color: var(--text-white);
     font-size: 40px;
 `
+
+export const PlaylistLink = styled.a`
+    color: var(--text-white);
+`

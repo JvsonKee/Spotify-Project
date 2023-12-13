@@ -50,6 +50,10 @@ const GlobalStyles = createGlobalStyle`
             background-color: var(--light-black);
         }
     };
+
+    a {
+        text-decoration: none;
+    }
 `;
 
 export default GlobalStyles

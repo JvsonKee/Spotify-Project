@@ -26,7 +26,8 @@ import {
     TrackAnalysis,
     AnalysisWrapper,
     FeatureItem,
-    ChartContainer
+    ChartContainer,
+    AlbumLink
 } from './AudioFeatures.styled';
 import BackButton from '../../components/BackButton';
 
@@ -67,7 +68,10 @@ function AudioFeatures() {
                                 <TrackData>
                                     <TrackName>{track.name}</TrackName>
                                     <div>{formatArtists(track.artists)}</div>
-                                    <div>{track.album.name} • {formatYear(track.album.release_date)}</div>
+                                    <div>
+                                        <AlbumLink href={track.album.external_urls.spotify} target='_blank' rel='noreferrer'>{track.album.name} </AlbumLink>
+                                         • {formatYear(track.album.release_date)}
+                                    </div>
                                 </TrackData>
                                 <TrackAnalysis>
                                     <AnalysisWrapper>

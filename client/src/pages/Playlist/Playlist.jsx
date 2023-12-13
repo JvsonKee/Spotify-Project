@@ -20,6 +20,7 @@ import {
     PlaylistArt,
     PlaylistData,
     PlaylistName,
+    PlaylistLink,
 } from './Playlist.styled';
 import {
     Index,
@@ -35,7 +36,7 @@ import BackButton from '../../components/BackButton';
 function Playlist() {
     const { id } = useParams();
     const playlist = useGetPlaylist(id);
-
+    console.log({playlist})
     let features = useGetTracksFeatures(playlist?.tracks?.items);
     console.log(features);
 
@@ -60,7 +61,11 @@ function Playlist() {
                         <PlaylistInformation>
                             <PlaylistArt src={playlist.images[0].url}></PlaylistArt>
                             <PlaylistData>
-                                <PlaylistName>{playlist.name}</PlaylistName>
+                                <PlaylistName>
+                                    <PlaylistLink href={playlist.external_urls.spotify} target='_blank' rel='noreferrer'>
+                                        {playlist.name}
+                                    </PlaylistLink>
+                                </PlaylistName>
                                 <div>{playlist.owner.display_name}</div>
                                 <div>{playlist.tracks.total} tracks</div>
                             </PlaylistData>
