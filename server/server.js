@@ -45,18 +45,12 @@ app.get('/callback', (req, res) => {
 
         spotifyApi.setAccessToken(access_token);
         spotifyApi.setRefreshToken(refresh_token);
-        
-        console.log(access_token);
-        console.log('success');
 
         res.redirect(`${FRONTEND_URI}` + '?access_token=' + access_token);
 
         setInterval(async () => {
             const data = await spotifyApi.refreshAccessToken();
             const access_token = data.body['access_token'];
-
-            console.log('Access token has been refreshed');
-            console.log({access_token});
 
             spotifyApi.setAccessToken(access_token);
         }, expires_in / 2 * 1000);

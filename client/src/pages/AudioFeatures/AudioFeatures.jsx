@@ -46,7 +46,6 @@ function AudioFeatures() {
     tempo = Math.round(tempo);
 
     let tempData = createFeatureArray(features, 1);
-    console.log({tempData});
     let featureData = getAudioFeaturesData(tempData);
     
     return(

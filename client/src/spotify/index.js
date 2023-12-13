@@ -11,7 +11,6 @@ export function useGetUser() {
     const [user, setUser] = useState();
     useEffect(() => {
         spotifyApi.getMe().then((data) => {
-            console.log(data.body)
             setUser(data.body);
         }, (e) => {
             console.error(e);
@@ -24,7 +23,6 @@ export function useGetFollowing() {
     const [following, setFollowing] = useState();
     useEffect(() => {
         spotifyApi.getFollowedArtists().then((data) => {
-            console.log(data.body)
             setFollowing(data.body);
         }, (e) => {
             console.error(e);
@@ -37,7 +35,6 @@ export function useGetPlaylists() {
     const [playlists, setPlaylists] = useState([]);
     useEffect(() => {
         spotifyApi.getUserPlaylists().then((data) => {
-            console.log(data.body)
             setPlaylists(data.body);
         }, (e) => {
             console.error(e);
@@ -50,7 +47,6 @@ export function useGetPlaylist(playlistId) {
     const[playlist, setPlaylist] = useState([]);
     useEffect(() => {
         spotifyApi.getPlaylist(playlistId).then((data) => {
-            console.log(data.body);
             setPlaylist(data.body);
         }, (e) => {
             console.log(e);
@@ -64,7 +60,6 @@ export function useGetTracksFeatures(playlist) {
     useEffect(() => {
         let playlistIds = getPlaylistTrackIds(playlist);
         spotifyApi.getAudioFeaturesForTracks(playlistIds).then((data) => {
-            console.log(data.body);
             setPlaylistFeatures(data.body);
         }, (e) => {
             console.log(e);
@@ -111,7 +106,6 @@ export function useGetTopArtists(timeRange) {
     const[artists, setArtists] = useState([]);
     useEffect(() => {
         spotifyApi.getMyTopArtists((timeRange)).then((data) => {
-            console.log(data.body);
             setArtists(data.body);
         }, (e) => {
             console.log(e);
@@ -124,7 +118,6 @@ export function useGetTopTracks(timeRange) {
     const[tracks, setTracks] = useState([]);
     useEffect(() => {
         spotifyApi.getMyTopTracks((timeRange)).then((data) => {
-            console.log(data.body);
             setTracks(data.body);
         }, (e) => {
             console.log(e);
@@ -138,7 +131,6 @@ export function useGetTrack(id) {
     const[track, setTrack] = useState([]);
     useEffect(() => {
         spotifyApi.getTrack(id).then((data) => {
-            console.log(data.body);
             setTrack(data.body);
         }, (e) => {
             console.log(e)
@@ -151,7 +143,6 @@ export function useGetAudioFeatures(id) {
     const [features, setFeatures] = useState([]);
     useEffect(() => {
         spotifyApi.getAudioFeaturesForTrack(id).then((data) => {
-            console.log(data.body);
             setFeatures(data.body);
         }, (e) => {
             console.log(e);

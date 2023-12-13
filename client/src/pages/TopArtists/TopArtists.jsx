@@ -15,7 +15,7 @@ const LONG = 'time_range=long_term';
 
 function TopArtists() {
     const [status, setStatus] = useState('All Time');
-    console.log({status});
+
     return (
         <Container>
             <GlobalStyles />
