@@ -21,7 +21,7 @@ let spotifyApi = new SpotifyWebApi({
     clientSecret: CLIENT_SECRET
 });
 
-const scopes = ['user-read-email', 'user-read-email', 'playlist-read-private', 'user-follow-read', 'user-top-read'];
+const scopes = ['user-read-email', 'playlist-read-private', 'user-follow-read', 'user-top-read'];
 
 app.get('/login', (req, res) => {
     res.redirect(spotifyApi.createAuthorizeURL(scopes));
