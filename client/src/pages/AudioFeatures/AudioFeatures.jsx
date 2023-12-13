@@ -28,6 +28,7 @@ import {
     FeatureItem,
     ChartContainer
 } from './AudioFeatures.styled';
+import BackButton from '../../components/BackButton';
 
 
 function AudioFeatures() {
@@ -59,6 +60,7 @@ function AudioFeatures() {
                 featureData &&
                 featureData[0].value ?
                     <MainContent>
+                        <BackButton />
                         <TrackInformation>
                             <TrackArt src={track.album.images[0].url}></TrackArt>
                             <FeaturesInformation>

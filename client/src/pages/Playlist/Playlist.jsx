@@ -30,6 +30,7 @@ import {
     TrackArtists,
     TrackAlbum
 } from "../../components/styles/Tracklist";
+import BackButton from '../../components/BackButton';
 
 function Playlist() {
     const { id } = useParams();
@@ -55,6 +56,7 @@ function Playlist() {
                 featureData &&
                 featureData[0].value ?
                     <MainContent>
+                        <BackButton />
                         <PlaylistInformation>
                             <PlaylistArt src={playlist.images[0].url}></PlaylistArt>
                             <PlaylistData>
