@@ -52,6 +52,10 @@ export const TrackAnalysis = styled.div`
     font-size: 11px;
 `
 
+export const TrackLink = styled.a`
+    color: var(--text-white);
+`
+
 export const AlbumLink = styled.a`
     color: var(--text-grey);
     transition: 0.3s ease-in-out;
