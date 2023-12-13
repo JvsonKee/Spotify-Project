@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { MainContent } from './MainContent';
+import { MainContent } from '../../components/styles/MainContent';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Main = styled(MainContent)`
@@ -61,6 +61,7 @@ export const TopItems = styled.div`
     @media screen and (max-width: 700px) {
         flex-direction: column;
         margin: 0 auto;
+        gap: 50px;
     }
 `
 
@@ -68,6 +69,11 @@ export const TopCategory = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 45%;
+
+    @media screen and (max-width: 700px) {
+        width: 100%;
+    }
 `
 
 export const TopHeader = styled(Link)`

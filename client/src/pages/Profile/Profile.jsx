@@ -1,17 +1,16 @@
-import NavBar from "./NavBar";
+import NavBar from "../../components/NavBar";
 import { 
     useGetUser, 
     useGetFollowing, 
     useGetTopArtists,
     useGetTopTracks, 
     formatArtists 
-} from "../spotify"
-
-import LoadingPage from "./LoadingPage";
-import GlobalStyles from "./styles/Global";
-import { Container } from "./styles/Container";
-import { ContentContainer } from "./styles/ContentContainer";
-import { TrackMatrix } from "./styles/TrackMatrix";
+} from "../../spotify"
+import LoadingPage from "../../components/LoadingPage";
+import GlobalStyles from "../../components/styles/Global";
+import { Container } from "../../components/styles/Container";
+import { ContentContainer } from "../../components/styles/ContentContainer";
+import { TrackMatrix } from "../../components/styles/TrackMatrix";
 import { 
     Main, 
     ProfileInformation, 
@@ -30,7 +29,7 @@ import {
     TrackAlbumArtists, 
     ArtistCard,
     ArtistPicture
-} from "./styles/Profile.styled";
+} from "./Profile.styled";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 
 const LONG = 'time_range=long_term'

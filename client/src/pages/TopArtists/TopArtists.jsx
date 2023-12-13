@@ -1,13 +1,13 @@
-import NavBar from './NavBar';
-import { Container } from './styles/Container';
-import GlobalStyles from './styles/Global';
-import { ContentContainer } from './styles/ContentContainer';
-import LoadingPage from './LoadingPage';
-import Dropdown from './Dropdown';
+import NavBar from '../../components/NavBar';
+import { Container } from '../../components/styles/Container';
+import GlobalStyles from '../../components/styles/Global';
+import { ContentContainer } from '../../components/styles/ContentContainer';
+import LoadingPage from '../../components/LoadingPage';
+import Dropdown from '../../components/Dropdown';
 import { useState } from 'react';
-import { MainContent } from './styles/MainContent';
-import { Header, HeaderContainer } from './styles/TopTracks.styled';
-import TopArtistsList from './TopArtistsList';
+import { MainContent } from '../../components/styles/MainContent';
+import { Header, HeaderContainer } from '../TopTracks/TopTracks.styled';
+import TopArtistsList from '../../components/TopArtistsList';
 
 const SHORT = 'time_range=short_term';
 const MEDIUM = 'time_range=medium_term';

@@ -1,26 +1,26 @@
 import { useParams } from 'react-router-dom'
-import NavBar from './NavBar'
-import LoadingPage from './LoadingPage';
-import { Container } from './styles/Container';
-import { ContentContainer } from './styles/ContentContainer';
-import GlobalStyles from './styles/Global';
-import { TrackMatrix } from './styles/TrackMatrix';
-import { MainContent } from './styles/MainContent';
-import AudioChart from './AudioChart';
-import { ChartContainer } from './styles/AudioFeatures.styled';
+import NavBar from '../../components/NavBar'
+import LoadingPage from '../../components/LoadingPage';
+import { Container } from '../../components/styles/Container';
+import { ContentContainer } from '../../components/styles/ContentContainer';
+import GlobalStyles from '../../components/styles/Global';
+import { TrackMatrix } from '../../components/styles/TrackMatrix';
+import { MainContent } from '../../components/styles/MainContent';
+import AudioChart from '../../components/AudioChart';
+import { ChartContainer } from '../AudioFeatures/AudioFeatures.styled';
 import {
     useGetPlaylist,
     formatArtists,
     useGetTracksFeatures,
     createFeatureArray,
     getAudioFeaturesData,
-} from '../spotify';
+} from '../../spotify';
 import { 
     PlaylistInformation,
     PlaylistArt,
     PlaylistData,
     PlaylistName,
-} from './styles/Playlist.styled';
+} from './Playlist.styled';
 import {
     Index,
     TracksContainer,
@@ -29,7 +29,7 @@ import {
     TrackName,
     TrackArtists,
     TrackAlbum
-} from "./styles/Tracklist";
+} from "../../components/styles/Tracklist";
 
 function Playlist() {
     const { id } = useParams();

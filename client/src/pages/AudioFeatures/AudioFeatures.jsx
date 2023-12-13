@@ -1,5 +1,5 @@
-import AudioChart from './AudioChart'
-import NavBar from "./NavBar";
+import AudioChart from '../../components/AudioChart'
+import NavBar from "../../components/NavBar";
 import { 
     useGetTrack, 
     useGetAudioFeatures, 
@@ -10,13 +10,13 @@ import {
     formatMode,
     getAudioFeaturesData,
     createFeatureArray
-} from '../spotify';
+} from '../../spotify';
 import { useParams } from 'react-router-dom';
-import LoadingPage from './LoadingPage';
-import GlobalStyles from './styles/Global';
-import { Container } from './styles/Container';
-import { ContentContainer } from './styles/ContentContainer';
-import { MainContent } from './styles/MainContent';
+import LoadingPage from '../../components/LoadingPage';
+import GlobalStyles from '../../components/styles/Global';
+import { Container } from '../../components/styles/Container';
+import { ContentContainer } from '../../components/styles/ContentContainer';
+import { MainContent } from '../../components/styles/MainContent';
 import { 
     TrackInformation,
     TrackArt,
@@ -27,7 +27,7 @@ import {
     AnalysisWrapper,
     FeatureItem,
     ChartContainer
-} from './styles/AudioFeatures.styled';
+} from './AudioFeatures.styled';
 
 
 function AudioFeatures() {

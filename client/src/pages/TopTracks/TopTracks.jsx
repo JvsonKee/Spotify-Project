@@ -1,16 +1,16 @@
-import NavBar from "./NavBar";
-import { Container } from "./styles/Container";
-import GlobalStyles from "./styles/Global";
-import { ContentContainer } from "./styles/ContentContainer";
-import TopTracksList from "./TopTracksList";
-import LoadingPage from "./LoadingPage";
+import NavBar from "../../components/NavBar";
+import { Container } from "../../components/styles/Container";
+import GlobalStyles from "../../components/styles/Global";
+import { ContentContainer } from "../../components/styles/ContentContainer";
+import TopTracksList from "../../components/TopTracksList";
+import LoadingPage from "../../components/LoadingPage";
 import { useState } from "react";
-import { MainContent } from "./styles/MainContent";
+import { MainContent } from "../../components/styles/MainContent";
 import {
     Header,
     HeaderContainer,
-} from "./styles/TopTracks.styled";
-import Dropdown from "./Dropdown";
+} from "./TopTracks.styled";
+import Dropdown from "../../components/Dropdown";
 
 
 const SHORT = 'time_range=short_term';
