@@ -12,7 +12,7 @@ import {
     faStar,
     faMusic
 } from '@fortawesome/free-solid-svg-icons'
-import spotifyLogo from "../assets/Spotify_icon.png"
+import spotifyLogo from "../assets/Spotify_Icon_RGB_Green.png"
 
 function NavBar() {
     return (
