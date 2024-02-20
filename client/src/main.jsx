@@ -14,10 +14,6 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: 'profile',
-    element: <Profile />
-  },
-  {
     path: 'playlists',
     element: <Playlists />
   },
