@@ -1,11 +1,22 @@
 import { useEffect, useState } from 'react';
 import SpotifyWebApi from 'spotify-web-api-node'
 
-const token = localStorage.getItem('Access Token');
-console.log({token});
 const spotifyApi = new SpotifyWebApi();
+const token = localStorage.getItem('access_token');
 spotifyApi.setAccessToken(token);
 
+export function getAccessToken() {
+    const accessToken = new URLSearchParams(window.location.search).get("access_token");
+
+    localStorage.setItem('access_token', accessToken);
+    spotifyApi.setAccessToken(accessToken);
+    return accessToken;
+}
+
+export function logout() {
+    window.localStorage.removeItem('access_token');
+    window.location.reload();
+}
 
 export function useGetUser() {
     const [user, setUser] = useState();
