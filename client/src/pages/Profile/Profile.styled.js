@@ -135,3 +135,28 @@ export const ArtistPicture = styled.img`
     height: 60px;
     border-radius: 100%;
 `
+
+export const LogoutContainer = styled.div`
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+
+`
+
+export const LogoutButton = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 35px;
+    border: 2px solid var(--text-white);
+    border-radius: 50px;
+    font-size: 14px;
+
+    &:hover {
+        transition: 0.3s ease-in-out;
+        cursor: pointer;    
+        background-color: var(--text-white);
+        color: var(--light-black);
+    }
+`

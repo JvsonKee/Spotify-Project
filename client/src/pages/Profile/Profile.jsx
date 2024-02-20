@@ -4,7 +4,8 @@ import {
     useGetFollowing, 
     useGetTopArtists,
     useGetTopTracks, 
-    formatArtists 
+    formatArtists, 
+    logout
 } from "../../spotify"
 import LoadingPage from "../../components/LoadingPage";
 import GlobalStyles from "../../components/styles/Global";
@@ -28,7 +29,9 @@ import {
     TrackName,
     TrackAlbumArtists, 
     ArtistCard,
-    ArtistPicture
+    ArtistPicture,
+    LogoutContainer,
+    LogoutButton
 } from "./Profile.styled";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 
@@ -65,6 +68,9 @@ function Profile() {
                                 <div>{following.artists.total} <span>Following</span></div>
                             </FollowItems>
                         </ProfileInformation>
+                        <LogoutContainer>
+                            <LogoutButton onClick={logout}>Logout</LogoutButton>
+                        </LogoutContainer>
                         <TopItems>
                             <TopCategory>
                                 <TopHeader to="/top-tracks">Top Tracks</TopHeader>
@@ -89,7 +95,8 @@ function Profile() {
                                     </ArtistCard>
                                 ))}
                             </TopCategory>
-                        </TopItems>
+                        </TopItems> 
+                        
                     </Main> : 
                     <LoadingPage type={'full'} />
                 }
