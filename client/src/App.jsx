@@ -1,12 +1,16 @@
+import { useEffect, useState } from "react";
 import Login from "./components/Login"
 import Profile from "./pages/Profile/Profile";
-
-const accessToken = new URLSearchParams(window.location.search).get("access_token");
-
-accessToken ? localStorage.setItem('Access Token', accessToken) : null
+import { getAccessToken } from "./spotify";
 
 export default function App() {
+    const [accessToken, setAccessToken] = useState();
+
+    useEffect(() => {
+        const localToken = localStorage.getItem('access_token');
+        !localToken || localToken == 'null' ? setAccessToken(getAccessToken()) : setAccessToken(localToken);
+    }, [accessToken])
+
     return accessToken ? <Profile /> : <Login />
 
 }
-
