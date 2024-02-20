@@ -30,7 +30,7 @@ const LoginButton = styled.a`
     }
 `
 
-const AUTH_URL = 'https://spotify-profile-server-nrmz.onrender.com/login'
+const AUTH_URL = 'http://localhost:8888/login'
 
 function Login() {
     return (
