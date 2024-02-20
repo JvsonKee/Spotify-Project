@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import Playlists from './pages/Playlists/Playlists';
 import App from './App';
 import Main from './pages/Playlist/Playlist';
-import Profile from './pages/Profile/Profile';
 import AudioFeatures from './pages/AudioFeatures/AudioFeatures';
 import TopTracks from './pages/TopTracks/TopTracks';
 import TopArtists from './pages/TopArtists/TopArtists';
@@ -12,10 +11,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
-  {
-    path: 'profile',
-    element: <Profile />
   },
   {
     path: 'playlists',

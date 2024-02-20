@@ -34,7 +34,6 @@ const borderColours = [
 
 function AudioChart( {featureData} ) {
 
-    console.log('trackData from audio chart', featureData)
     const [chartData, setChartData] = useState( {
         labels: featureData?.map((data) => data.label),
         datasets: [{
