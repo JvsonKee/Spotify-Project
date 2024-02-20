@@ -36,7 +36,6 @@ import BackButton from '../../components/BackButton';
 function Playlist() {
     const { id } = useParams();
     const playlist = useGetPlaylist(id);
-    console.log({playlist})
     let features = useGetTracksFeatures(playlist?.tracks?.items);
     let playFeatures = createFeatureArray(features?.audio_features, 0);
     let featureData = getAudioFeaturesData(playFeatures);
