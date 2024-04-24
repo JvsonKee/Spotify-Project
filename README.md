@@ -3,5 +3,6 @@
 https://your-spotify-profile.netlify.app/
 
 ## Test Credidentials
-email: testingforspotify24@gmail.com
+Please use the following credidentials to test the website!
+email: testingforspotify24@gmail.com </br >
 password: password!123
