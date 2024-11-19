@@ -19,7 +19,13 @@ export const ProfileInformation = styled.div`
 
 export const ProfilePicture = styled.img`
     width: 220px;
-    border-radius: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 4px;
+
+    @media screen and (max-width: 500px) {
+        border-radius: 2px;
+    }
+    /* border-radius: 100%; */
 `
 
 export const PlaceholderPicture = styled.div`
@@ -28,8 +34,12 @@ export const PlaceholderPicture = styled.div`
     align-items: center;
     width: 200px;
     height: 200px;
-    border-radius: 100%;
+    border-radius: 4px;
     background-color: var(--hover);
+
+    @media screen and (max-width: 500px) {
+        border-radius: 2px;
+    }
 `
 
 export const FaIcon = styled(FontAwesomeIcon)`
@@ -103,6 +113,7 @@ export const TrackCard = styled(Link)`
     text-decoration: none;
     border-radius: 10px;
     transition: 0.4s ease-in-out;
+
     &:hover {
         background-color: var(--hover);
     }   
@@ -119,6 +130,7 @@ export const ArtistCard = styled.div`
 
 export const TrackArt = styled.img`
     width: 60px;
+    border-radius: 2px;
 `
 
 export const TrackName = styled.div`
@@ -127,13 +139,14 @@ export const TrackName = styled.div`
 `
 
 export const TrackAlbumArtists = styled.div`
-    font-size: 12px
+    font-size: 12px;
 `
 
 export const ArtistPicture = styled.img`
     width: 60px;
     height: 60px;
-    border-radius: 100%;
+    border-radius: 2px;
+    /* border-radius: 100%; */
 `
 
 export const LogoutContainer = styled.div`
