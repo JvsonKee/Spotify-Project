@@ -86,7 +86,7 @@ function Profile() {
                                     <TrackCard to={"/track/" + track.id} key={i}>
                                         <Index>{i + 1}</Index>
                                         <TrackArt src={track.album.images[0].url}></TrackArt>
-                                        <TrackMatrix>
+                                        <TrackMatrix style={{width: "65%"}}>
                                             <TrackName>{track.name}</TrackName>
                                             <TrackAlbumArtists>{formatArtists(track.artists)} • {track.album.name}</TrackAlbumArtists>
                                         </TrackMatrix>

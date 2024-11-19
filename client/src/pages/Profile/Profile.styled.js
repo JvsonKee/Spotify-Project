@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Main = styled(MainContent)`
     @media screen and (max-width: 820px) {
-        padding: 5vh 10vw;
         gap: 50px;
     }
 `
@@ -55,9 +54,10 @@ export const DisplayName = styled.div`
 export const FollowItems = styled.div`
     display: flex;
     justify-content: space-evenly;
-    width: 500px;
+    width: 100%;
     word-spacing: 5px;
     color: var(--accent-green);
+
     & span {
         color: var(--text-grey);
     }
@@ -79,7 +79,7 @@ export const TopCategory = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 45%;
+    width: 100%;
 
     @media screen and (max-width: 700px) {
         width: 100%;
@@ -94,6 +94,7 @@ export const TopHeader = styled(Link)`
     padding-bottom: 5px;
     width: 100px;
     transition: 0.3s ease-in-out;
+
     &:hover {
         color: var(--accent-green);
     }
@@ -136,6 +137,9 @@ export const TrackArt = styled.img`
 export const TrackName = styled.div`
     color: var(--text-white);
     font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `
 
 export const TrackAlbumArtists = styled.div`

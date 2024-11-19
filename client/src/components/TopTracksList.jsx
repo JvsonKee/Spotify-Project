@@ -24,7 +24,7 @@ function TopTracksList( {range} ) {
                         <TrackCard to={'/track/' + track.id} key={i}>
                             <Index>{i + 1}</Index>
                             <TrackArt src={track.album.images[0].url}></TrackArt>
-                            <TrackMatrix>
+                            <TrackMatrix style={{width: "65%"}}>
                                 <TrackName>{track.name}</TrackName>
                                 <TrackArtists>{formatArtists(track.artists)}</TrackArtists>
                                 <TrackAlbum>{track.album.name}</TrackAlbum>
