@@ -26,10 +26,6 @@ const GlobalStyles = createGlobalStyle`
     footer, header, hgroup, menu, nav, section {
         display: block;
     };
-    
-    body {
-        line-height: 1;
-    };
 
     :root {
         --accent-green: #1DB954;
@@ -40,11 +36,16 @@ const GlobalStyles = createGlobalStyle`
         --text-white: #FFFFFF;
     };
 
+    html {
+        height: --webkit-fill-available;
+    }
+
     body {
         background-color: var(--dark-black);
         color: var(--text-white);
         font-family: 'Montserrat';
         font-weight: 500;
+        line-height: 1;
 
         @media screen and (max-width: 820px) {
             background-color: var(--light-black);
