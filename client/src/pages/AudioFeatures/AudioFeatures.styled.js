@@ -11,9 +11,14 @@ export const TrackInformation = styled.div`
 
 export const TrackArt = styled.img`
     width: clamp(250px, 20vw, 350px);
+    border-radius: 4px;
 
     @media screen and (max-width: 700px) {
         margin: 0 auto;
+    }
+
+    @media screen and (max-width: 500px) {
+        border-radius: 2px;
     }
 `
 

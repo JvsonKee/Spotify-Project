@@ -1,20 +1,28 @@
 import { useEffect, useState } from 'react';
 import SpotifyWebApi from 'spotify-web-api-node'
 
+const getSessionAccessToken = () => window.sessionStorage.getItem('spotify_access_token');
+
 const spotifyApi = new SpotifyWebApi();
-const token = localStorage.getItem('access_token');
+const token = sessionStorage.getItem('access_token');
 spotifyApi.setAccessToken(token);
 
 export function getAccessToken() {
     const accessToken = new URLSearchParams(window.location.search).get("access_token");
 
-    localStorage.setItem('access_token', accessToken);
-    spotifyApi.setAccessToken(accessToken);
-    return accessToken;
+    const sessionAccessToken = getSessionAccessToken();
+
+    if ((!sessionAccessToken || sessionAccessToken == "undefined") && accessToken) {
+        sessionStorage.setItem('access_token', accessToken);
+        spotifyApi.setAccessToken(accessToken);
+        return accessToken;
+    }
+
+    return sessionAccessToken;
 }
 
 export function logout() {
-    window.localStorage.removeItem('access_token');
+    window.sessionStorage.removeItem('access_token');
     window.location.reload();
 }
 

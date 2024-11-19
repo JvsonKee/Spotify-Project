@@ -31,6 +31,11 @@ export const Index = styled.div`
 export const TrackArt = styled.img`
     width: 75px;
     height: 75px;
+    border-radius: 4px;
+
+    @media screen and (max-width: 500px) {
+        border-radius: 2px;
+    }
 `
 
 export const TrackName = styled.div`

@@ -19,6 +19,12 @@ export const FAIcon = styled(FontAwesomeIcon)`
     font-size: 17px;
 `
 
+export const Icon = styled.div`
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+`
+
 export const Nav = styled.div`
     display: flex;
     flex-direction: column;
@@ -38,9 +44,17 @@ export const Nav = styled.div`
         position: fixed;
         border-radius: 0px;
         background-color: var(--dark-black);
+
+        .logo {
+            display: none;
+        }
     }
 
     & a.active ${FAIcon} {
+        color: var(--accent-green);
+    }
+
+    & a.active ${Icon} {
         color: var(--accent-green);
     }
 
@@ -51,14 +65,15 @@ export const Nav = styled.div`
 
 export const NavItem = styled(NavLink)`
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
+    gap: 20px;
+    width: 60%;
     height: 5%;
     color: var(--text-grey);
     text-decoration: none;
+    font-size: 16px;
 
-    & span, ${FAIcon} {
+    & span, ${FAIcon}, ${Icon} {
         transition: 0.3s ease-in-out;
     }
     &:hover span {
@@ -67,10 +82,20 @@ export const NavItem = styled(NavLink)`
     &:hover ${FAIcon} {
         color: var(--accent-green);
     }
+    &:hover ${Icon} {
+        color: var(--accent-green);
+    }
+
+    @media screen and (max-width: 820px) {
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        font-size: 14px;
+    }
 `
 
 export const SpotifyIcon = styled.img`
-    width: 70px;
+    width: 150px;
 
     @media screen and (max-width: 820px) {
        width: 50px;

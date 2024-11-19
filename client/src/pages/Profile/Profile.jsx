@@ -5,7 +5,6 @@ import {
     useGetTopArtists,
     useGetTopTracks, 
     formatArtists, 
-    logout
 } from "../../spotify"
 import LoadingPage from "../../components/LoadingPage";
 import GlobalStyles from "../../components/styles/Global";
@@ -34,6 +33,7 @@ import {
     LogoutButton
 } from "./Profile.styled";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const LONG = 'time_range=long_term'
 
@@ -42,6 +42,14 @@ function Profile() {
     const following = useGetFollowing();
     const topArtists = useGetTopArtists(LONG);
     const topTracks = useGetTopTracks(LONG);
+
+    const navigate = useNavigate();
+
+    const logout = () => {
+        window.sessionStorage.removeItem('access_token');
+        navigate('/');
+        window.location.reload();
+    }
     
     return (
         <Container>
@@ -58,7 +66,7 @@ function Profile() {
                     <Main>
                         <ProfileInformation>
                             {
-                                profile.images.length > 0 ? <ProfilePicture src={profile.images[1].url}></ProfilePicture> :
+                                profile.images.length > 0 ? <ProfilePicture src={profile.images[0].url}></ProfilePicture> :
                                 <PlaceholderPicture><FaIcon icon={faUser}></FaIcon></PlaceholderPicture>
                             }
                             

@@ -4,21 +4,24 @@ import {
     Nav,
     NavItem,
     FAIcon,
-    SpotifyIcon
+    SpotifyIcon,
+    Icon
 } from "./styles/NavBar.styled"
 import { 
     faUser,
     faLinesLeaning,
-    faStar,
-    faMusic
 } from '@fortawesome/free-solid-svg-icons'
-import spotifyLogo from "../assets/Spotify_Icon_RGB_Green.png"
+import { 
+    IoIosMusicalNotes, 
+    IoIosStar
+ } from "react-icons/io";
+import fullSpotifyLogo from "../assets/Full_Logo_Green_RGB.svg";
 
 function NavBar() {
     return (
         <NavContainer>
             <Nav>
-                <Link to="/"><SpotifyIcon src={spotifyLogo}></SpotifyIcon></Link>
+                <Link to="/" className="logo"><SpotifyIcon src={fullSpotifyLogo}/></Link>
                 <NavItem to="/">
                     <FAIcon icon={faUser} />
                     <span>Profile</span>
@@ -28,11 +31,15 @@ function NavBar() {
                     <span>Playlists</span>
                 </NavItem>
                 <NavItem to="/top-tracks">
-                    <FAIcon icon={faMusic} />
+                    <Icon>
+                        <IoIosMusicalNotes />
+                    </Icon>
                     <span>Top Tracks</span>
                 </NavItem>
                 <NavItem to="/top-artists">
-                    <FAIcon icon={faStar} />
+                    <Icon>
+                        <IoIosStar />
+                    </Icon>
                     <span>Top Artists</span>
                 </NavItem>  
             </Nav>
