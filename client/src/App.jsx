@@ -7,10 +7,9 @@ export default function App() {
     const [accessToken, setAccessToken] = useState();
 
     useEffect(() => {
-        const localToken = localStorage.getItem('access_token');
+        const localToken = sessionStorage.getItem('access_token');
         !localToken || localToken == 'null' ? setAccessToken(getAccessToken()) : setAccessToken(localToken);
     }, [accessToken])
 
     return accessToken ? <Profile /> : <Login />
-
 }
