@@ -10,7 +10,7 @@ export const PlaylistsContainer = styled.div`
     display: flex;
     flex-direction: row;    
     flex-wrap: wrap;
-    gap: 1%;
+    gap: 10px;
     word-wrap: break-word;
     text-align: center;
 
@@ -24,21 +24,18 @@ export const PlaylistCard = styled(Link)`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 19%;
+    width: calc((100% / 4) - (30px / 4));
     margin-bottom: 15px;
     text-decoration: none;
+    transition: 300ms ease-in-out;
     cursor: default;
 
-    @media screen and (max-width: 1500px) {
-        width: 24%;
+    &:hover {
+        transform: translateY(-4px);
     }
 
-    @media screen and (max-width: 1200px) {
-        width: 32%;
-    }
-
-    @media screen and (max-width: 630px) {
-        width: 49%;
+    @media screen and (max-width: 830px) {
+        width: calc((100% / 3) - (20px / 3));
     }
 
     @media screen and (max-width: 500px) {
@@ -61,15 +58,18 @@ export const PlaylistCard = styled(Link)`
 
 export const PlaylistArt = styled.img`
     width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 4px;
     transition: 0.4s ease-in-out;
 
     &:hover {
         cursor: pointer;
-        filter: brightness(50%);
+        /* filter: brightness(50%); */
     }
 
     @media screen and (max-width: 500px) {
         width: 90px;
+        border-radius: 2px;
 
         &:hover {
             filter: brightness(100%);
