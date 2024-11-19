@@ -19,7 +19,7 @@ function TopArtistsList( {range} ) {
                 <ArtistContainer>
                     {topArtists.items.map((artist, i) => (
                         <ArtistCard key={i}>
-                            <ArtistPicture src={artist.images[0].url}></ArtistPicture>
+                            <ArtistPicture src={artist.images[0].url} />
                             <ArtistName>{artist.name}</ArtistName>
                         </ArtistCard>
                     ))}
