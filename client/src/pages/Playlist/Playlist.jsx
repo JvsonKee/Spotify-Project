@@ -72,7 +72,7 @@ function Playlist() {
                                 <TrackCard to={"/track/" + data.track.id} key = {i}>
                                     <Index>{i + 1}</Index>
                                     <TrackArt src={data.track.album.images[0].url}></TrackArt>
-                                    <TrackMatrix>
+                                    <TrackMatrix style={{width: "65%"}}>
                                         <TrackName>{data.track.name}</TrackName>
                                         <TrackArtists>{formatArtists(data.track.artists)}</TrackArtists>
                                         <TrackAlbum>{data.track.album.name}</TrackAlbum>

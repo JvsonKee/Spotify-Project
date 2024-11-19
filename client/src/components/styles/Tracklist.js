@@ -11,6 +11,7 @@ export const TrackCard = styled(Link)`
     display: flex;
     gap: 10px;
     align-items: center;
+    width: 100%;
     height: 90px;
     font-size: 14px;
     text-decoration: none;
@@ -41,6 +42,9 @@ export const TrackArt = styled.img`
 export const TrackName = styled.div`
     color: var(--text-white);
     font-size: clamp(15px, 3vw, 16px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `
 
 export const TrackArtists = styled.div`
