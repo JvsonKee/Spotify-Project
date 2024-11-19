@@ -1,6 +1,6 @@
-# Spotify-Project
+# TuneTeller
 
-https://your-spotify-profile.netlify.app/
+https://tune-teller.netlify.app/
 
 ## Test Credidentials
 Please use the following credidentials to test the website! </br >
