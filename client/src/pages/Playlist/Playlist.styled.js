@@ -14,10 +14,15 @@ export const PlaylistInformation = styled.div`
 
 export const PlaylistArt = styled.img`
     width: 300px;
+    aspect-ratio: 1 / 1;
+    border-radius: 4px;
     
     @media screen and (max-width: 700px) {
         margin: 0 auto;
-        
+    }
+
+    @media screen and (max-width: 500px) {
+        border-radius: 2px;
     }
 `
 
@@ -27,6 +32,10 @@ export const PlaylistData = styled.div`
     gap: 10px;
     font-size: 13px;
     color: var(--text-grey);
+
+    @media screen and (max-width: 700px) {
+        margin: 0 auto;
+    }
 `
 
 export const PlaylistName = styled.div`
