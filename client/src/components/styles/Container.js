@@ -5,7 +5,7 @@ export const Container = styled.div`
     gap: 1px;
     overflow: hidden;
     /* height: 100dvh; */
-    padding-bottom: env(safe-area-inset-bottom);
+    height: 100svh;
 
     @media screen and (max-width: 820px) {
         flex-direction: column-reverse
